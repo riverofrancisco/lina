@@ -106,11 +106,11 @@ const LandingPage: React.FC = () => {
                 fontFamily: "monospace",
                 fontWeight: 700,
                 letterSpacing: { md: ".3rem" },
-                color: { xs: "brown", sm: "inherit" },
+                color: { sm: "inherit" },
                 textDecoration: "none",
               }}
             >
-              Lina Rivero
+              LINA RIVERO
             </Typography>
           </Box>
         </Grid>
