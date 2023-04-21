@@ -24,20 +24,20 @@ import { Icon } from "@iconify/react";
 
 const actions = [
   {
-    icon: <Icon icon="mdi:instagram" color="#c13584" />,
+    icon: <Icon icon="mdi:instagram" color="black" />,
     color: "#C13584",
     name: "_linarivero",
 
     linkto: "https://www.instagram.com/_linarivero/",
   },
   {
-    icon: <Icon icon="carbon:logo-youtube" color="red" />,
+    icon: <Icon icon="carbon:logo-youtube" color="black" />,
     color: "red",
     name: "@_linarivero",
     linkto: "https://www.youtube.com/@_linarivero",
   },
   {
-    icon: <Icon icon="mdi:spotify" color="green" />,
+    icon: <Icon icon="mdi:spotify" color="black" />,
     color: "green",
     name: "Lina Rivero",
     linkto:
@@ -127,7 +127,6 @@ const LandingPage: React.FC = () => {
         >
           {" "}
           <Box
-            mt={3}
             display="flex"
             justifyContent="center"
             sx={{
