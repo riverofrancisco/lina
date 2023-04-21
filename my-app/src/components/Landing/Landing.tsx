@@ -9,7 +9,8 @@ import KeyboardArrowRightRoundedIcon from "@mui/icons-material/KeyboardArrowRigh
 import { useAppDispatch, useAppSelector } from "../../hooks/hooksRedux";
 import { Adder } from "../../redux/portfolio/actions";
 import Button from "@mui/material/Button";
-import BGimage from "./LinaNoDiscute.png";
+import BGimage from "./Toma1.jpg";
+import BGimage2 from "./Toma1v2.jpg";
 
 import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
@@ -70,7 +71,7 @@ const LandingPage: React.FC = () => {
       container
       direction="row"
       sx={{
-        backgroundImage: `url(${BGimage})`,
+        backgroundImage: { xs: `url(${BGimage2})`, sm: `url(${BGimage})` },
         weight: "100vh",
         backgroundSize: "cover",
       }}
@@ -92,7 +93,7 @@ const LandingPage: React.FC = () => {
             alignItems="center"
             sx={{
               flexDirection: { xs: "column", sm: "row" },
-              pt: { xs: 10, sm: 5 },
+              pt: { xs: 7, sm: 20 },
               justifyContent: { xs: "center" },
             }}
           >
@@ -106,7 +107,7 @@ const LandingPage: React.FC = () => {
                 fontFamily: "monospace",
                 fontWeight: 700,
                 letterSpacing: { md: ".3rem" },
-                color: { sm: "inherit" },
+                color: { xs: "inherit" },
                 textDecoration: "none",
               }}
             >
@@ -133,13 +134,19 @@ const LandingPage: React.FC = () => {
               width: { xs: "80%", sm: "50%" },
               py: { xs: 10, sm: 5 },
               flexDirection: { xs: "column", sm: "row" },
+              alignItems: { xs: "end", sm: "center" },
             }}
           >
             {actions.map((action) => (
               <Box key={action.linkto}>
                 <IconButton
                   onClick={() => handleLink(action.linkto)}
-                  sx={{ color: `${action.color}`, m: 1, fontSize: "3rem" }}
+                  sx={{
+                    color: `${action.color}`,
+                    m: 1,
+                    mr: 0,
+                    fontSize: "3rem",
+                  }}
                 >
                   {action.icon}
                 </IconButton>
