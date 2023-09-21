@@ -13,6 +13,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Icon } from "@iconify/react";
 import MP from "./mercadopagoLogoWhite.png"
+import MailIcon from '@mui/icons-material/Mail';
 import DefaultLoading from "../Loading/Loading";
 
 const actions = [
@@ -41,6 +42,12 @@ const actions = [
     color: "lightBlue",
     name: "LinaRiveroMusica",
     linkto: "https://link.mercadopago.com.ar/linarivero",
+  },
+  {
+    icon: <MailIcon />,
+    color: "lightgrey",
+    name: "info.linarivero@gmail.com",
+    linkto: "mailto:info.linarivero@gmail.com",
   },
 ];
 
@@ -138,14 +145,14 @@ const TreeLanding: React.FC = () => {
               width: { xs: "100%", md: "70%"},
               height: {xs: "100%"},
               py: { xs: 0, sm: 5 },
-              mt:{xs: "45vh", sm: 0},
+              mt:{xs: "35vh", sm: 0},
               flexDirection: { xs: "column" },
               justifyContent: { xs: "end", sm: "center" },
             }}
           >
             {actions.map((action) => (
               <Box
-                border={0.5}
+               
                 borderRadius={2}
                 key={action.linkto}
                 sx={{
