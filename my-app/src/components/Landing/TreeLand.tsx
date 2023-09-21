@@ -1,62 +1,56 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import { Typography } from "@mui/material/";
-import Fab from "@mui/material/Fab";
+
 import { Box } from "@mui/system";
 import Grid from "@mui/material/Grid";
-import KeyboardArrowRightRoundedIcon from "@mui/icons-material/KeyboardArrowRightRounded";
 
 import { useAppDispatch, useAppSelector } from "../../hooks/hooksRedux";
-import { Adder } from "../../redux/portfolio/actions";
-import Button from "@mui/material/Button";
+
 import BGimage from "./Toma1.jpg";
 import BGimage2 from "./Toma1v2.jpg";
 
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import Divider from "@mui/material/Divider";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Icon } from "@iconify/react";
+import MP from "./mercadopagoLogoWhite.png"
 import DefaultLoading from "../Loading/Loading";
 
 const actions = [
   {
-    icon: <Icon icon="mdi:instagram" color="black" />,
+    icon: <InstagramIcon />,
     color: "#C13584",
     name: "_linarivero",
 
     linkto: "https://www.instagram.com/_linarivero/",
   },
   {
-    icon: <Icon icon="carbon:logo-youtube" color="black" />,
+    icon: <YouTubeIcon />,
     color: "red",
     name: "@_linarivero",
     linkto: "https://www.youtube.com/@_linarivero",
   },
   {
-    icon: <Icon icon="mdi:spotify" color="black" />,
+    icon: <Icon icon="mdi:spotify" color="lightgrey" width={"24"}/>,
     color: "green",
     name: "Lina Rivero",
     linkto:
       "https://open.spotify.com/artist/3binED05LZgUfuz7ODLCMX?si=9yS8RHbTTEieMvOW7aygig",
   },
+  {
+    icon: <img src={MP} alt= "MP" width={"24"}/>,
+    color: "lightBlue",
+    name: "LinaRiveroMusica",
+    linkto: "https://link.mercadopago.com.ar/linarivero",
+  },
 ];
 
-const LandingPage: React.FC = () => {
+const TreeLanding: React.FC = () => {
   const handleLink = (link: string) => {
     if (link) window.open(link, "_blank");
   };
 
   const dispatch = useAppDispatch();
   const status = useAppSelector((state) => state.global.value);
-
-  const handleClick = () => {
-    dispatch(Adder(1));
-  };
 
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
@@ -67,28 +61,25 @@ const LandingPage: React.FC = () => {
     setSelectedIndex(index);
   };
 
-  if(!BGimage || !BGimage2) {
-    return (
-      <DefaultLoading />
-    )
+  if (!BGimage || !BGimage2) {
+    return <DefaultLoading />;
   }
-
 
   return (
     <Grid
       container
       direction="row"
-      border={1}
+      
       sx={{
         backgroundImage: { xs: `url(${BGimage2})`, sm: `url(${BGimage})` },
         weight: "100vh",
         backgroundSize: "cover",
       }}
     >
-      <Grid item xs={12} border={1} height="100vh">
+      <Grid item xs={12}  height="100vh">
         <Grid
           item
-          border={1}
+         
           xs={12}
           sm={6}
           md={7}
@@ -98,7 +89,7 @@ const LandingPage: React.FC = () => {
           sx={{ mt: { xs: "40vd", md: 0 } }}
         >
           <Box
-          border={1}
+            
             width="100%"
             display="flex"
             alignItems="center"
@@ -108,61 +99,79 @@ const LandingPage: React.FC = () => {
               justifyContent: { xs: "center" },
             }}
           >
-            <Typography
-            border={1}
-              variant="h4"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                display: { md: "flex" },
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: { md: ".3rem" },
-                color: { xs: "inherit" },
-                textDecoration: "none",
-              }}
-            >
-              LINA RIVERO
-            </Typography>
+<Typography
+ variant="h4"
+  noWrap
+  component="a"
+  href="/"
+  sx={{
+    display: { md: "flex" },
+    fontFamily: "monospace",
+    fontWeight: 1000,
+    letterSpacing:  ".5rem",
+    color: { xs: "inherit" },
+    textDecoration: "none",
+    textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)", // Ajusta los valores de sombra según tus preferencias
+  }}
+>
+  LINA RIVERO
+</Typography>
           </Box>
         </Grid>
 
         <Grid
-        border={1}
+         
           item
           xs={12}
           sm={6}
           md={7}
           display="flex"
-          alignItems="center"
           justifyContent="center"
+        sx={{alignItems:{xs:"end", sm:"center"}}}
         >
           {" "}
           <Box
-          border={1}
+            
             display="flex"
-            justifyContent="center"
+            alignItems="center"
             sx={{
-              width: { xs: "80%", sm: "50%" },
-              py: { xs: 10, sm: 5 },
-              flexDirection: { xs: "column", sm: "row" },
-              alignItems: { xs: "end", sm: "center" },
+              width: { xs: "100%", md: "70%"},
+              height: {xs: "100%"},
+              py: { xs: 0, sm: 5 },
+              mt:{xs: "45vh", sm: 0},
+              flexDirection: { xs: "column" },
+              justifyContent: { xs: "end", sm: "center" },
             }}
           >
             {actions.map((action) => (
-              <Box border={1} key={action.linkto}>
-                <IconButton
-                  onClick={() => handleLink(action.linkto)}
-                  sx={{
-                    color: `${action.color}`,
-                    m: 1,
-                    mr: 0,
-                    fontSize: "3rem",
-                  }}
-                >
-                  {action.icon}
-                </IconButton>
+              <Box
+                border={0.5}
+                borderRadius={2}
+                key={action.linkto}
+                sx={{
+                    bgcolor: "black", opacity: "70%",
+                  py: 1,
+                  px:2,
+                  color: `lightgrey`,
+                  m: 1,
+                  mr: 0,
+                  fontSize: "h1",
+                  width: "80%",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  transition: "transform 0.3s ease-in-out",
+                  "&:hover": {
+                    transform: "scale(1.02)",
+                    transitionDelay: "0.01s",
+                    cursor:"pointer",
+            
+
+                  },
+                }}
+                onClick={() => handleLink(action.linkto)}
+              >
+                {action.icon}
+                <Typography>{action.name}</Typography>
               </Box>
             ))}
           </Box>
@@ -172,4 +181,4 @@ const LandingPage: React.FC = () => {
   );
 };
 
-export default LandingPage;
+export default TreeLanding;
