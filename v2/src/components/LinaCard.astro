@@ -1,30 +1,31 @@
 ---
-interface Props {
+import Icon from "./Icon.astro";
+
+interface LinaCard {
   title: string;
-  body: string;
-  href: string;
+  link: string;
+  logo: string;
 }
 
-const { href, title, body } = Astro.props;
+const { title, link, logo } = Astro.props;
 ---
 
-<li class="link-card">
-  <a href={href}>
-    <h2>
-      {title}
-      <span>&rarr;</span>
-    </h2>
-    <p>
-      {body}
-    </p>
+<ul class="link-card">
+  <a href={link} target="_blank" rel="noopener noreferrer">
+      <h2>
+        {title}
+      </h2>
+      <Icon icon=`${logo}` />
   </a>
-</li>
+</ul>
+
 <style>
-  .link-card {
+      .link-card {
     list-style: none;
     display: flex;
+    flex-direction: row;
     padding: 1px;
-    background-color: #23262d;
+    background-color: #262626;
     background-image: none;
     background-size: 400%;
     border-radius: 7px;
@@ -34,12 +35,15 @@ const { href, title, body } = Astro.props;
   }
   .link-card > a {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     text-decoration: none;
     line-height: 1.4;
-    padding: calc(1.5rem - 1px);
+    padding: calc(1.1rem - 1px);
     border-radius: 8px;
-    color: white;
-    background-color: #23262d;
+    color: #A6877C;
+    background-color: #262626;
     opacity: 0.8;
   }
   h2 {
@@ -56,6 +60,7 @@ const { href, title, body } = Astro.props;
     background-image: var(--accent-gradient);
   }
   .link-card:is(:hover, :focus-within) h2 {
-    color: rgb(var(--accent-light));
+    color: "#A65C32"
   }
+
 </style>
