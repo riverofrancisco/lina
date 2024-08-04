@@ -1,9 +1,29 @@
 ---
 import ButtonHome from "../components/Buttons/ButtonHome.astro";
+import Pagination from "../components/pagination.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Lina Rivero">
+  <div class="w-100% h-15">
+    CARRUSEL DE IMAGENES CON TEXTAERA DE INGRESAR UN MAIL PARA SUSCRIBIRSE A NEWSLETTER
+  </div>
+  <div class="border-2 border_color-black">Próxima fecha </div>
+  <div> Video de youtube y link al canal</div>
+  <div> Galeria de imagenes</div>
+  
+  <Pagination prev="/contact" next="/bepartof" />
+
+
+  <div>
+    FOOTER
+  </div>
+
+
+
+
+
+
   <ButtonHome />
 </Layout>
 
@@ -23,5 +43,8 @@ import Layout from "../layouts/Layout.astro";
     color: #a6877c;
     text-align: center;
     margin-bottom: 1em;
+  }
+  div {
+    color: white
   }
 </style>

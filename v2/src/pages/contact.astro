@@ -1,5 +1,6 @@
 ---
 import ButtonHome from "../components/Buttons/ButtonHome.astro";
+import Pagination from "../components/pagination.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -8,6 +9,8 @@ import Layout from "../layouts/Layout.astro";
     <h1>Formulario de contacto iria en esta parte</h1>
     <ButtonHome />
   </div>
+
+  <Pagination prev="/events" next="home"/>
 </Layout>
 
 <style>
