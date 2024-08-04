@@ -1,5 +1,27 @@
 ---
-
+import ButtonHome from "../components/Buttons/ButtonHome.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
- <a href="/">← Go back to home</a>
+<Layout title="Lina Rivero">
+  <ButtonHome />
+</Layout>
+
+<style>
+  h1 {
+    font-size: 4rem;
+    color: #a6877c;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1;
+    color: #a6877c;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+</style>

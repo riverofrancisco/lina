@@ -1,30 +1,28 @@
 ---
-import Icon from "./Icon.astro";
+import Icon from "../Icon.astro"
 
-interface LinaCard {
-  title: string;
-  link: string;
-  logo: string;
+interface SocialMediaCard {
+    logo: string
+    link: string
 }
 
-const { title, link, logo } = Astro.props;
+const {logo, link} = Astro.props
+
+
 ---
 
 <ul class="link-card">
   <a href={link} target="_blank" rel="noopener noreferrer">
-      <h2>
-        {title}
-      </h2>
-      <Icon icon=`${logo}` />
+    <Icon icon=`${logo}` />
   </a>
 </ul>
 
 <style>
-      .link-card {
+  .link-card {
     list-style: none;
     display: flex;
     flex-direction: row;
-    padding: 1px;
+    padding: 3px;
     background-color: #262626;
     background-image: none;
     background-size: 400%;
@@ -42,7 +40,7 @@ const { title, link, logo } = Astro.props;
     line-height: 1.4;
     padding: calc(1.1rem - 1px);
     border-radius: 8px;
-    color: #A6877C;
+    color: #a6877c;
     background-color: #262626;
     opacity: 0.8;
   }
@@ -57,10 +55,9 @@ const { title, link, logo } = Astro.props;
   }
   .link-card:is(:hover, :focus-within) {
     background-position: 0;
-    background-image: var(--accent-gradient);
+    background-image: linear-gradient(135deg, #A6877C 0%, #A65C32 50%, #A63F03 100%);;
   }
   .link-card:is(:hover, :focus-within) h2 {
-    color: "#A65C32"
+    color: "#A65C32";
   }
-
 </style>
