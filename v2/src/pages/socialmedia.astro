@@ -1,10 +1,28 @@
 ---
 import SocialMediaCard from "../components/Cards/SocialMediaCard.astro"
 import Layout from "../layouts/Layout.astro"
+import ButtonHome from '../components/Buttons/ButtonHome.astro'
 ---
 <Layout title="Social Media">
+    <main>
 <SocialMediaCard link="https://www.instagram.com/_linarivero/" logo="insta"/>
 <SocialMediaCard link="https://www.youtube.com/@_linarivero" logo="youtube"/>
 <SocialMediaCard link="https://www.tiktok.com/@_linarivero" logo="tiktok"/>
+    </main>
+    <ButtonHome />
+
 </Layout>
 
+<style>
+     main {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: #a6877c;
+    font-size: 20px;
+    line-height: 1.6;
+  }
+</style>
