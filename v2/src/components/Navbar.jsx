@@ -9,35 +9,36 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="p-4 bg-orange-300 shadow md:flex md:items-center md:justify-between">
-      <div className="flex justify-between items-center">
-        <span className="text-2xl font-[Roboto]">
-          <a href="/">Lina Rivero</a>
-        </span>
-        <span
-          className="text-3xl cursor-pointer md:hidden block mx-2"
-          onClick={toggleDrawer(true)}
-        >
-          <svg
-            name="menu"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            className="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
+    <nav className=" bg-orange-300 shadow">
+      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 p-4 md:flex md:items-center md:justify-between ">
+        <div className="flex justify-between items-center">
+          <span className="text-2xl font-[Roboto]">
+            <a href="/">Lina Rivero</a>
+          </span>
+          <span
+            className="text-3xl cursor-pointer md:hidden block mx-2"
+            onClick={toggleDrawer(true)}
           >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M4 6l16 0" />
-            <path d="M4 12l16 0" />
-            <path d="M4 18l16 0" />
-          </svg>
-        </span>
-      </div>
-      {/*  <Drawer open={open} onClose={toggleDrawer(false)}>
+            <svg
+              name="menu"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              className="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M4 6l16 0" />
+              <path d="M4 12l16 0" />
+              <path d="M4 18l16 0" />
+            </svg>
+          </span>
+        </div>
+        {/*  <Drawer open={open} onClose={toggleDrawer(false)}>
         <List>
           <a href="/home">
             <ListItem key="DR-Home" disablePadding>
@@ -66,40 +67,41 @@ export const Navbar = () => {
         </List>
       </Drawer> */}
 
-      <ul className="hidden md:flex md:items-center md:z-auto md:w-auto md:static w-full left-0 top-[-400px] transition-all ease-in duration-500">
-        <li className="hover:border-b border-b-transparent hover:border-b-black transition-all ease-in-out duration-500">
-          <a
-            href="/home"
-            className="md:p-2 text-l hover:opacity-100 opacity-70 transition-all ease-in-out duration-300"
-          >
-            INICIO
-          </a>
-        </li>
-        <li className="hover:border-b border-b-transparent hover:border-b-black transition-all ease-in-out duration-500">
-          <a
-            href="/bepartof"
-            className="md:p-2 text-l hover:opacity-100 opacity-70 transition-all ease-in-out duration-300"
-          >
-            SE PARTE DE
-          </a>
-        </li>
-        <li className="hover:border-b border-b-transparent hover:border-b-black transition-all ease-in-out duration-500">
-          <a
-            href="/events"
-            className="md:p-2 text-l hover:opacity-100 opacity-70 transition-all ease-in-out duration-300 "
-          >
-            EVENTOS
-          </a>
-        </li>
-        <li className="hover:border-b border-b-transparent hover:border-b-black transition-all ease-in-out duration-500">
-          <a
-            href="/contact"
-            className="md:p-2 text-l hover:opacity-100 opacity-70 transition-all ease-in-out duration-300 "
-          >
-            CONTACTOS
-          </a>
-        </li>
-      </ul>
+        <ul className="hidden md:flex md:items-center md:z-auto md:w-auto md:static w-full left-0 top-[-400px] transition-all ease-in duration-500">
+          <li className="hover:border-b border-b-transparent hover:border-b-black transition-all ease-in-out duration-500">
+            <a
+              href="/home"
+              className="md:p-2 text-l hover:opacity-100 opacity-70 transition-all ease-in-out duration-300"
+            >
+              INICIO
+            </a>
+          </li>
+          <li className="hover:border-b border-b-transparent hover:border-b-black transition-all ease-in-out duration-500">
+            <a
+              href="/bepartof"
+              className="md:p-2 text-l hover:opacity-100 opacity-70 transition-all ease-in-out duration-300"
+            >
+              SE PARTE DE
+            </a>
+          </li>
+          <li className="hover:border-b border-b-transparent hover:border-b-black transition-all ease-in-out duration-500">
+            <a
+              href="/events"
+              className="md:p-2 text-l hover:opacity-100 opacity-70 transition-all ease-in-out duration-300 "
+            >
+              EVENTOS
+            </a>
+          </li>
+          <li className="hover:border-b border-b-transparent hover:border-b-black transition-all ease-in-out duration-500">
+            <a
+              href="/contact"
+              className="md:p-2 text-l hover:opacity-100 opacity-70 transition-all ease-in-out duration-300 "
+            >
+              CONTACTOS
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };
