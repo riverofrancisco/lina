@@ -5,7 +5,7 @@ import { Colors } from "../utils/colors";
 ---
 
 <Layout title="404 page not found">
-  <div class=" py-5 w-100 flex items-center justify-center flex-col border">
+  <div class=" py-5 w-100vh h-80 flex items-center justify-center flex-col border">
 
   <h3>THIS PAGE HAS NOT BEEN FOUND</h3>
   <img src="https://lh3.googleusercontent.com/proxy/8BSHXCBWt0orVM_GdvQTWVTBqcKOMsCZX3U8zucbC2h6pkeI0fhsBidfrH2BSH1pFoc5TGu5eUMXChX4gExj" alt="pic"/>
@@ -15,6 +15,15 @@ import { Colors } from "../utils/colors";
   <ButtonHome />
 </Layout>
 <style>
+  img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -10;
+  }
   
   h3 {
     z-index: 10;
