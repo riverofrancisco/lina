@@ -1,28 +1,33 @@
 ---
 import SocialMediaCard from "../components/Cards/SocialMediaCard.astro"
-import Layout from "../layouts/Layout.astro"
+import SocialMediaLayout from "../layouts/SocialMediaLayout.astro"
 import ButtonHome from '../components/Buttons/ButtonHome.astro'
+import Toma1 from '../utils/data/pictures/Toma1.jpg'
 ---
-<Layout title="Social Media">
+<SocialMediaLayout title="Social Media">
     <main>
-<SocialMediaCard link="https://www.instagram.com/_linarivero/" logo="insta"/>
-<SocialMediaCard link="https://www.youtube.com/@_linarivero" logo="youtube"/>
-<SocialMediaCard link="https://www.tiktok.com/@_linarivero" logo="tiktok"/>
-    </main>
-    <ButtonHome />
+    
+<SocialMediaCard link="https://www.instagram.com/_linarivero/" title="Instagram"  logo="insta" color=""/>
+<SocialMediaCard link="https://www.youtube.com/@_linarivero" title="Youtube" logo="youtube" color=""/>
+<SocialMediaCard link="https://www.tiktok.com/@_linarivero" title="Tiktok" logo="tiktok" color=""/>
+    
 
-</Layout>
+    <ButtonHome />
+</main>
+</SocialMediaLayout>
 
 <style>
-     main {
-    margin: auto;
+    main {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: #a6877c;
+    width: 100vw;
+    min-height: 100vh;
+    color: #ffd0bf;
     font-size: 20px;
-    line-height: 1.6;
+    background: url(../utils/data/pictures/Toma1.jpg) no-repeat center center fixed;
+    background-size: cover;
   }
 </style>

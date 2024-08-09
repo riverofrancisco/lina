@@ -1,11 +1,10 @@
 ---
+import EventsPageCont from "../components/PageContainers/EventsPageCont.astro"
 import Pagination from "../components/pagination.astro"
 import Layout from "../layouts/Layout.astro"
 ---
 
 <Layout title="Eventos y Fechas">
-
-    <div> generar una card de eventos </div>
-    <p> generar un detail de eventos  </p>
-    <Pagination prev="/bepartof" next="/contact"/>
+<EventsPageCont />
+<Pagination prev="/bepartof" next="/contact"/>
 </Layout>

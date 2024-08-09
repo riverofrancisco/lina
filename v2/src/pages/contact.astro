@@ -1,33 +1,12 @@
 ---
 import ButtonHome from "../components/Buttons/ButtonHome.astro";
+import ContactPageCont from "../components/PageContainers/ContactPageCont.astro";
 import Pagination from "../components/pagination.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Contratar Show">
-  <div>
-    <h1>Formulario de contacto iria en esta parte</h1>
-    <ButtonHome />
-  </div>
-
+  <ContactPageCont />
   <Pagination prev="/events" next="home"/>
 </Layout>
 
-<style>
-  h1 {
-    font-size: 4rem;
-    color: #a6877c;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    line-height: 1;
-    color: #a6877c;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-</style>

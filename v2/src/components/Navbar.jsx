@@ -9,7 +9,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className=" bg-orange-300 shadow">
+    <nav className=" bg-#ffd0bf shadow">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 p-4 md:flex md:items-center md:justify-between ">
         <div className="flex justify-between items-center">
           <span className="text-2xl font-[Roboto]">
