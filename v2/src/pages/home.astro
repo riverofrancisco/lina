@@ -1,35 +1,44 @@
 ---
 import ButtonHome from "../components/Buttons/ButtonHome.astro";
-import Carousel from "../components/Gallery/Carousel.astro";
 import Pagination from "../components/pagination.astro";
 import Layout from "../layouts/Layout.astro";
 import EventCard from '../components/Cards/EventCard.astro'
 import Gallery from '../components/Gallery/Gallery.astro'
+import Welcome from "../components/Gallery/VideoWelcome.astro";
 ---
 
 <Layout title="Lina Rivero">
 
-  <Carousel />
-  <div class="container">
-  <div class="border flex flex-col p-2">
+  <Welcome />
+ <!--  <div class="grid grid-cols-3 grid-rows3 p-4 max-w-screen-xl">
+  <div class="border flex-col col-span-1">
     <h2>Próxima Fecha</h2>
-   <!--  <EventCard /> -->
+    <EventCard />
   </div>
-  <div class="border rouded"> Video de youtube y link al canal</div>
+  <div class="border col-span-2 rouded flex items-center justify-center"> 
+    Video de youtube y link al canal
   </div>
-  <!-- <Gallery /> -->
-  
+    <div class="border flex flex-col">
+    <h2>Próxima Fecha</h2>
+    <EventCard />
+  </div>
+  <div class="border rouded flex items-center justify-center"> 
+    Video de youtube y link al canal
+  </div>
+  </div>
+   -->
   
 <Pagination prev="/contact" next="/bepartof" />
 </Layout>
 
 <style>
-  .container { 
+  .Container { 
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    margin-top: 10px;
+    grid-template-columns: 1fr 2fr;
 
+    column-span: 20;
     width: 100vw;
-    height: 100%;
     padding-left: 10%;
     padding-right: 10%;
   }
