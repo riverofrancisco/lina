@@ -7,15 +7,18 @@ import Toma1 from '../utils/data/pictures/Toma1.jpg'
 ---
 <SocialMediaLayout title="Social Media">
     <main>
+        <div class="social-media-grid">
+            <SocialMediaCard link="https://www.instagram.com/_linarivero/" title="Instagram"  logo="insta" user="@_linarivero"/>
+            <SocialMediaCard link="https://open.spotify.com/artist/3binED05LZgUfuz7ODLCMX?si=9yS8RHbTTEieMvOW7aygig" title="Spotify" logo="spoty2" user="Lina Rivero"/>
+            <SocialMediaCard link="https://www.youtube.com/@_linarivero" title="Youtube" logo="youtube" user="@_linarivero"/>
+            <SocialMediaCard link="https://www.tiktok.com/@_linarivero" title="Tiktok" logo="tiktok" user="_linarivero"/>     
+        </div>
     
-<SocialMediaCard link="https://www.instagram.com/_linarivero/" title="Instagram"  logo="insta" user="@_linarivero"/>
-<SocialMediaCard link="https://www.tiktok.com/@_linarivero" title="Spotify" logo="spoty2" user="Lina Rivero"/>
-<SocialMediaCard link="https://www.youtube.com/@_linarivero" title="Youtube" logo="youtube" user="@_linarivero"/>
-<SocialMediaCard link="https://www.tiktok.com/@_linarivero" title="Tiktok" logo="tiktok" user="_linarivero"/>
-    
+
 <div class="nav">
+    <LinaCard link="/" title="Back to home" logo="back" />
     <LinaCard link="/home" title="Ver Más" logo="add" />
-    <LinaCard link="/" title="Back to home" logo="sing" />
+    
 </div>
    
 </main>
@@ -27,8 +30,28 @@ import Toma1 from '../utils/data/pictures/Toma1.jpg'
         width: 100%;
         grid-template-columns: repeat(auto-fit, minmax(2ch, 1fr));
         gap: 1rem;
-        padding: 0;
+        padding: 2%;
     }
+
+    .social-media-grid {
+        display: grid;
+        padding: 2%;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    @media (min-width: 768px) {
+  .social-media-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .social-media-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 
     main {
     display: flex;

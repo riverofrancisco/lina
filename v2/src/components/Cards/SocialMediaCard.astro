@@ -14,7 +14,7 @@ const {logo, link, color, title, user} = Astro.props
 ---
 
 <div class=`media-${logo}`>
-  <div class="flex flex-col pr-20 items-start w-full" >
+  <div class="flex flex-col items-start w-full" >
     <h2>{title}</h2>
     
     <a href={link} target="_blank" rel="noopener noreferrer">
@@ -22,7 +22,7 @@ const {logo, link, color, title, user} = Astro.props
   </a>
   </div>
 
-  <a href={link} target="_blank" rel="noopener noreferrer">
+  <a class="icon-link" href={link} target="_blank" rel="noopener noreferrer">
     <Icon icon=`${logo}` />
   </a>
 
@@ -33,21 +33,26 @@ const {logo, link, color, title, user} = Astro.props
 <style>
   h2{
     color: inherit;
-    font-size: large;
+    font-size: 1.5rem;
     font-weight: 700;
     font-family: sans-serif;
     margin-bottom: 10px;
   }
+
+  .icon-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+}
 
   .follow{
     display: flex;
     justify-content: center;
     color: whitesmoke;
     background-color: black;
-    font-size: medium;
-    padding: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
+    font-size: 1rem;
+    padding: 10px 20px;
     border-radius: 10px;
     margin-top: 2px;
     margin-bottom: 2px;
@@ -70,9 +75,9 @@ const {logo, link, color, title, user} = Astro.props
     background: #262626;
     padding: 10px;
     border-radius: 15px;
-    margin: 10px;
+   
     opacity: 0.95;
-    width: 80%;
+    width: 100%;
     animation: fadeIn 2s;
     transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;
     box-shadow: 1px 1px 1px black ;
@@ -92,9 +97,9 @@ const {logo, link, color, title, user} = Astro.props
     background: #262626;
     padding: 10px;
     border-radius: 15px;
-    margin: 10px;
+    
     opacity: 0.95;
-    width: 80%;
+    width: 100%;
     animation: fadeIn 2s;
     transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;
     box-shadow: 1px 1px 1px black ;
@@ -114,9 +119,9 @@ const {logo, link, color, title, user} = Astro.props
     background: #262626;
     padding: 10px;
     border-radius: 15px;
-    margin: 10px;
+    
     opacity: 0.95;
-    width: 80%;
+    width: 100%;
     animation: fadeIn 2s;
     transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;
     box-shadow: 1px 1px 1px black ;
@@ -136,9 +141,8 @@ const {logo, link, color, title, user} = Astro.props
     background: #262626;
     padding: 10px;
     border-radius: 15px;
-    margin: 10px;
     opacity: 0.95;
-    width: 80%;
+    width: 100%;
     animation: fadeIn 2s;
     transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;
     box-shadow: 1px 1px 1px black ;
@@ -152,6 +156,13 @@ const {logo, link, color, title, user} = Astro.props
     color: #262626;
     box-shadow: none;
   }
+
+  @media (max-width: 300px) {
+  .follow {
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+  }}
 
   @keyframes fadeIn {
     from{
