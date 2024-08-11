@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import Icon from "./Icon.astro";
+import linalogo from "../utils/data/pictures/Lina Logo.png";
 //import { Divider, Drawer, List, ListItem, ListItemText } from "@mui/material";
 
 export const Navbar = () => {
@@ -7,6 +9,8 @@ export const Navbar = () => {
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
+
+ 
 
   return (
     <nav className=" bg-#ffd0bf shadow">
@@ -19,25 +23,10 @@ export const Navbar = () => {
             className="text-3xl cursor-pointer md:hidden block mx-2"
             onClick={toggleDrawer(true)}
           >
-            <svg
-              name="menu"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              className="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M4 6l16 0" />
-              <path d="M4 12l16 0" />
-              <path d="M4 18l16 0" />
-            </svg>
+            
           </span>
         </div>
+
         {/*  <Drawer open={open} onClose={toggleDrawer(false)}>
         <List>
           <a href="/home">

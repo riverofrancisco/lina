@@ -2,21 +2,34 @@
 import SocialMediaCard from "../components/Cards/SocialMediaCard.astro"
 import SocialMediaLayout from "../layouts/SocialMediaLayout.astro"
 import ButtonHome from '../components/Buttons/ButtonHome.astro'
+import LinaCard from '../components/Cards/LinaCard.astro'
 import Toma1 from '../utils/data/pictures/Toma1.jpg'
 ---
 <SocialMediaLayout title="Social Media">
     <main>
     
-<SocialMediaCard link="https://www.instagram.com/_linarivero/" title="Instagram"  logo="insta" color=""/>
-<SocialMediaCard link="https://www.youtube.com/@_linarivero" title="Youtube" logo="youtube" color=""/>
-<SocialMediaCard link="https://www.tiktok.com/@_linarivero" title="Tiktok" logo="tiktok" color=""/>
+<SocialMediaCard link="https://www.instagram.com/_linarivero/" title="Instagram"  logo="insta" user="@_linarivero"/>
+<SocialMediaCard link="https://www.tiktok.com/@_linarivero" title="Spotify" logo="spoty2" user="Lina Rivero"/>
+<SocialMediaCard link="https://www.youtube.com/@_linarivero" title="Youtube" logo="youtube" user="@_linarivero"/>
+<SocialMediaCard link="https://www.tiktok.com/@_linarivero" title="Tiktok" logo="tiktok" user="_linarivero"/>
     
-
-    <ButtonHome />
+<div class="nav">
+    <LinaCard link="/home" title="Ver Más" logo="add" />
+    <LinaCard link="/" title="Back to home" logo="sing" />
+</div>
+   
 </main>
 </SocialMediaLayout>
 
 <style>
+    .nav {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(2ch, 1fr));
+        gap: 1rem;
+        padding: 0;
+    }
+
     main {
     display: flex;
     flex-direction: column;

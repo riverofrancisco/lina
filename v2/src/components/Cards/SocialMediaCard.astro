@@ -13,32 +13,144 @@ const {logo, link, color, title, user} = Astro.props
 
 ---
 
-<div class="media-card">
-  <div class="flex flex-col" >
+<div class=`media-${logo}`>
+  <div class="flex flex-col pr-20 items-start w-full" >
     <h2>{title}</h2>
-    <p></p>
+    
+    <a href={link} target="_blank" rel="noopener noreferrer">
+    <button class="follow">Follow<p>{user}</p></button>
+  </a>
   </div>
 
   <a href={link} target="_blank" rel="noopener noreferrer">
     <Icon icon=`${logo}` />
   </a>
+
+  
+  
 </div>
 
 <style>
-  .media-card{
-    display: flex;
-    background: #262626;
-    margin: 10px;
-    opacity: 0.9;
-    padding: 10px;
-    border-radius: 15px;
-    box-shadow: 1px 1px 1px black;
-    animation: fadeIn 2s;
-    transition: transform .5s ease
+  h2{
+    color: inherit;
+    font-size: large;
+    font-weight: 700;
+    font-family: sans-serif;
+    margin-bottom: 10px;
   }
 
-  .media-card:is(:hover, :focus-within) {
+  .follow{
+    display: flex;
+    justify-content: center;
+    color: whitesmoke;
+    background-color: black;
+    font-size: medium;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    transition: background .2s ease, color .2s ease;
+  }
+
+   .follow:is(:hover, :focus-within) {
+    color: black;
+    background: white
+  }
+
+  p {
+    margin-left: 5px;
+    font-weight: 600;
+  }
+
+  .media-insta{
+    display: flex;
+    align-items: center;
+    background: #262626;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 10px;
+    opacity: 0.95;
+    width: 80%;
+    animation: fadeIn 2s;
+    transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;
+    box-shadow: 1px 1px 1px black ;
+    color: #c32aa3;
+  }
+
+  .media-insta:is(:hover, :focus-within) {
     transform: scale(1.02);
+    background: #c32aa3;
+    box-shadow: none;
+    color: #262626;
+  }
+
+  .media-youtube{
+    display: flex;
+    align-items: center;
+    background: #262626;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 10px;
+    opacity: 0.95;
+    width: 80%;
+    animation: fadeIn 2s;
+    transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;
+    box-shadow: 1px 1px 1px black ;
+    color: #c4302b;
+  }
+
+  .media-youtube:is(:hover, :focus-within) {
+    transform: scale(1.02);
+    background: #c4302b;
+    color: #262626;
+    box-shadow: none;
+  }
+
+  .media-tiktok{
+    display: flex;
+    align-items: center;
+    background: #262626;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 10px;
+    opacity: 0.95;
+    width: 80%;
+    animation: fadeIn 2s;
+    transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;
+    box-shadow: 1px 1px 1px black ;
+    color: #00f2ea;
+  }
+
+  .media-tiktok:is(:hover, :focus-within) {
+    transform: scale(1.02);
+    background: #00f2ea;
+    color: #262626;
+    box-shadow: none;
+  }
+
+  .media-spoty2{
+    display: flex;
+    align-items: center;
+    background: #262626;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 10px;
+    opacity: 0.95;
+    width: 80%;
+    animation: fadeIn 2s;
+    transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;
+    box-shadow: 1px 1px 1px black ;
+    color: #1DB954;
+    
+  }
+
+  .media-spoty2:is(:hover, :focus-within) {
+    transform: scale(1.02);
+    background: #1DB954;
+    color: #262626;
+    box-shadow: none;
   }
 
   @keyframes fadeIn {
@@ -46,7 +158,7 @@ const {logo, link, color, title, user} = Astro.props
       opacity: 0;
     }
     to{
-      opacity: 0.9;
+      opacity: 0.95;
     }
     
   }
