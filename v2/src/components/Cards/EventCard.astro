@@ -1,8 +1,17 @@
 ---
+interface EventCard {
+  title: string;
+  date: Date;
+  picture: string;
+  locationLink: string;
+  locationName: string;
+  description: string;
+}
+
+const {title, date, picture, locationLink, locationName, description } = Astro.props
 ---
 
-<div
-  class="block rounded-lg shadow-secondary-1 bg-black">
+<div class="block rounded-lg shadow-secondary-1 bg-black">
   <a href="#!">
     <img
       class="rounded-t-lg"

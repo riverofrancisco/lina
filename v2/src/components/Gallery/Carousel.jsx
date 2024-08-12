@@ -1,3 +1,10 @@
-export const Carousel = () => {
-  return <div>ACÁ IRIA UN CAROUSEL</div>;
-};
+
+
+export function HomeCarousel() {
+  return (
+
+<div>
+  ACA IRÍA UN CAROUSEL
+</div>
+  )
+}
