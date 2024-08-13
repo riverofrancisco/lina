@@ -8,8 +8,6 @@ export const Timer = ({ nextDate }) => {
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft(nextDate));
     }, 1000);
-
-    // Clear the interval when the component unmounts
     return () => clearInterval(timer);
   }, [nextDate]);
 
