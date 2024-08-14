@@ -5,11 +5,15 @@ import Layout from "../layouts/Layout.astro";
 import EventCard from '../components/Cards/EventCard.astro'
 import Gallery from '../components/Gallery/Gallery.astro'
 import Welcome from "../components/Gallery/VideoWelcome.astro";
-import { HomeCarousel } from "../components/Gallery/Carousel";
+import { HomeCarousel } from "../components/Gallery/Carousel/Carousel";
+import EventsPageCont from "../components/PageContainers/EventsPageCont.astro";
 ---
 
-<Layout title="Lina Rivero">
-<HomeCarousel />
+<Layout title="Lina Rivero" >
+<HomeCarousel client:load/>
+<EventsPageCont />
+<Gallery />
+
 <Pagination prev="/contact" next="/bepartof" />
 </Layout>
 
