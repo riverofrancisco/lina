@@ -11,6 +11,7 @@ const events = [
     locationName: "Parque de la Música, Madrid",
     description:
       "Lina Rivero será la artista principal en el Festival Internacional de Música en Madrid, una noche que promete ser inolvidable.",
+    tickets: "",
   },
   {
     title: "Concierto en la Playa",
@@ -20,6 +21,7 @@ const events = [
     locationName: "Playa Grande, Mar del Plata",
     description:
       "Disfruta de un atardecer increíble con la música de Lina Rivero en la hermosa Playa Grande. ¡No te lo pierdas!",
+    tickets: "",
   },
   {
     title: "Gira Sudamericana",
@@ -29,6 +31,7 @@ const events = [
     locationName: "Estadio Nacional, Santiago",
     description:
       "Lina Rivero llega a Santiago de Chile como parte de su Gira Sudamericana. ¡Asegura tu entrada y sé parte de este evento histórico!",
+    tickets: "",
   },
 ];
 
@@ -54,6 +57,7 @@ export const EventsPageContent = () => {
             locationLink={evt.locationLink}
             locationName={evt.locationName}
             description={evt.description}
+            tickets={evt.tickets}
           />
         ))}
       </div>
