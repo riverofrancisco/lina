@@ -14,8 +14,8 @@ const {logo, link, color, title, user} = Astro.props
 ---
 
 <div class=`media-${logo}`>
-  <div class="flex flex-col items-start w-full" >
-    <h2>{title}</h2>
+  <div class="flex sm:flex-col justify-between items-start mr-3 w-full" >
+    <h2 class="hidden sm:flex">{title}</h2>
     
     <a href={link} target="_blank" rel="noopener noreferrer">
     <button class="follow">Follow<p>{user}</p></button>
@@ -76,7 +76,7 @@ const {logo, link, color, title, user} = Astro.props
     padding: 10px;
     border-radius: 15px;
    
-    opacity: 0.95;
+    opacity: 0.8;
     width: 100%;
     animation: fadeIn 2s;
     transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;
@@ -98,7 +98,7 @@ const {logo, link, color, title, user} = Astro.props
     padding: 10px;
     border-radius: 15px;
     
-    opacity: 0.95;
+    opacity: 0.8;
     width: 100%;
     animation: fadeIn 2s;
     transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;
@@ -120,7 +120,7 @@ const {logo, link, color, title, user} = Astro.props
     padding: 10px;
     border-radius: 15px;
     
-    opacity: 0.95;
+    opacity: 0.8;
     width: 100%;
     animation: fadeIn 2s;
     transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;
@@ -141,7 +141,7 @@ const {logo, link, color, title, user} = Astro.props
     background: #262626;
     padding: 10px;
     border-radius: 15px;
-    opacity: 0.95;
+    opacity: 0.8;
     width: 100%;
     animation: fadeIn 2s;
     transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;

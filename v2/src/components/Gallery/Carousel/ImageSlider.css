@@ -11,7 +11,6 @@
 .img-slider-btn {
  display: block;
  position: absolute;
- fill: grey;
  color: grey;
  top: 0;
  bottom: 0;
@@ -25,8 +24,7 @@
 }
 
 .img-slider-btn > * {
-    stroke: white;
-    fill: black;
+    stroke: #ffedd5;
     width: 2rem;
     height: 2rem;
 }
