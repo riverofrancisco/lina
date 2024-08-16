@@ -1,5 +1,5 @@
 ---
-import EventsPageCont from "../components/PageContainers/EventsPageCont.astro"
+import { EventsPageContent } from "../components/PageContainers/EventsPageCont"
 import Pagination from "../components/pagination.astro"
 import Layout from "../layouts/Layout.astro"
 
@@ -7,6 +7,6 @@ import Layout from "../layouts/Layout.astro"
 
 
 <Layout title="Eventos y Fechas">
-<EventsPageCont />
+<EventsPageContent client:load />
 <Pagination prev="/bepartof" next="/contact"/>
 </Layout>

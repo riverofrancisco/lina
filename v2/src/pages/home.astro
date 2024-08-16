@@ -2,16 +2,15 @@
 import ButtonHome from "../components/Buttons/ButtonHome.astro";
 import Pagination from "../components/pagination.astro";
 import Layout from "../layouts/Layout.astro";
-import EventCard from '../components/Cards/EventCard.astro'
 import Gallery from '../components/Gallery/Gallery.astro'
 import Welcome from "../components/Gallery/VideoWelcome.astro";
 import { HomeCarousel } from "../components/Gallery/Carousel/Carousel";
-import EventsPageCont from "../components/PageContainers/EventsPageCont.astro";
+import { EventsPageContent } from "../components/PageContainers/EventsPageCont";
 ---
 
 <Layout title="Lina Rivero" >
 <HomeCarousel client:load/>
-<EventsPageCont />
+<EventsPageContent client:visible />
 <Gallery />
 
 <Pagination prev="/contact" next="/bepartof" />
