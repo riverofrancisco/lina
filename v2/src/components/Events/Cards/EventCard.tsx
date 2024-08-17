@@ -33,7 +33,11 @@ export const EventCard = ({
 
   return (
     <div className="bg-gradient-to-r from-gray-100 to-gray-300 shadow-lg rounded-lg overflow-hidden">
-      <img src={picture} alt={title} className="w-full h-48 object-cover" />
+      <img
+        src={picture}
+        alt={title}
+        className="w-full h-48 object-cover lazyload"
+      />
       <div className="p-4">
         <h2 className="text-xl font-bold mb-2">{title}</h2>
         <div className="flex items-start sm:items-center text-gray-600 mb-4">

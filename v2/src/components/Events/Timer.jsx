@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { calculateTimeLeft } from "../../utils/middlewares/calculateTime";
 
-interface TimerI {
-  nextDate: string
-}
-
-export const Timer = ({ nextDate }: TimerI) => {
+export const Timer = ({ nextDate }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(nextDate));
 
   useEffect(() => {
@@ -15,9 +11,9 @@ export const Timer = ({ nextDate }: TimerI) => {
     return () => clearInterval(timer);
   }, [nextDate]);
 
-  const timerComponents: any[] = [];
+  const timerComponents = [];
 
-  Object.keys(timeLeft).forEach((interval: any) => {
+  Object.keys(timeLeft).forEach((interval) => {
     if (!timeLeft[interval]) {
       return;
     }

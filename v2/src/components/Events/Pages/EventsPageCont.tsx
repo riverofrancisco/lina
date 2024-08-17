@@ -1,10 +1,15 @@
 import type { EventCardI } from "../Cards/EventCard.tsx";
 import { EventCard } from "../Cards/EventCard.tsx";
-import { Timer } from "../Timer.tsx";
+import { Timer } from "../Timer.jsx";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./EventsPageCont.css";
+
+import React, { Suspense, lazy } from "react";
+
+
+const LazySlider = lazy(() => import("react-slick"));
 
 const events = [
   {

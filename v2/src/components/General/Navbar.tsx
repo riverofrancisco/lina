@@ -46,8 +46,8 @@ export const Navbar = () => {
               </a>
             </li>
             <li className="w-full text-center py-2 hover:bg-orange-100">
-              <a href="/bepartof" className="text-lg block">
-                SE PARTE DE
+              <a href="/gallery" className="text-lg block">
+                GALERIA
               </a>
             </li>
             <li className="w-full text-center py-2 hover:bg-orange-100">
@@ -75,10 +75,10 @@ export const Navbar = () => {
           </li>
           <li className="hover:border-b border-b-transparent hover:border-b-black transition-all ease-in-out duration-500">
             <a
-              href="/bepartof"
+              href="/gallery"
               className="md:p-2 text-l hover:opacity-100 opacity-70 transition-all ease-in-out duration-300"
             >
-              SE PARTE DE
+              GALERIA
             </a>
           </li>
           <li className="hover:border-b border-b-transparent hover:border-b-black transition-all ease-in-out duration-500">
