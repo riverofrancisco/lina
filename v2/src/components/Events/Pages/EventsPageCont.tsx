@@ -1,3 +1,6 @@
+import React, { useState, useEffect, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+
 import type { EventCardI } from "../Cards/EventCard.tsx";
 import { EventCard } from "../Cards/EventCard.tsx";
 import { Timer } from "../Timer.jsx";
@@ -5,11 +8,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./EventsPageCont.css";
-
-import React, { Suspense, lazy } from "react";
-
-
-const LazySlider = lazy(() => import("react-slick"));
 
 const events = [
   {
@@ -79,13 +77,25 @@ interface EventsPage {
 }
 
 export const EventsPageContent = ({ inHome }: EventsPage) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel();
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  // Root node
+
   let allEvents: EventCardI[] = [];
 
   events.forEach((ev) => {
     allEvents.push(ev);
   });
 
-  const targetDate = "2024-12-31T23:59:59";
+  const targetDate = "2024-09-20T00:00:00";
 
   var settings = {
     dots: true,
@@ -118,8 +128,61 @@ export const EventsPageContent = ({ inHome }: EventsPage) => {
     <div>
       <Timer nextDate={targetDate} />
       {inHome ? (
-        <div className="slider-container">
-          <Slider {...settings}>
+        <div className="embla">
+          <div className="embla__viewport" ref={emblaRef}>
+            <div className="embla__container">
+              {allEvents.map((evt) => (
+                <div key={`${evt.date}`} className="embla__slide">
+                  <EventCard
+                    title={evt.title}
+                    date={evt.date}
+                    picture={evt.picture}
+                    locationLink={evt.locationLink}
+                    locationName={evt.locationName}
+                    description={evt.description}
+                    tickets={evt.tickets}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="controls__container">
+          <button className="embla__prev control" onClick={scrollPrev}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={24}
+              height={24}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M15 6l-6 6l6 6" />
+            </svg>
+          </button>
+          <button className="embla__next control" onClick={scrollNext}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width={24}
+              height={24}
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M9 6l6 6l-6 6" />
+            </svg>
+          </button>
+          </div>
+          {/* <Slider {...settings}>
             {allEvents.map((evt) => (
               <EventCard
                 key={`${evt.date}`}
@@ -132,7 +195,7 @@ export const EventsPageContent = ({ inHome }: EventsPage) => {
                 tickets={evt.tickets}
               />
             ))}
-          </Slider>
+          </Slider> */}
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 p-5 sm:grid-cols-2 md:grid-cols-3">
