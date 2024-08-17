@@ -1,5 +1,5 @@
 ---
-import Icon from "../Icon.astro"
+import Icon from "../../General/Icon.astro"
 
 interface SocialMediaCard {
     logo: string
@@ -75,10 +75,9 @@ const {logo, link, color, title, user} = Astro.props
     background: #262626;
     padding: 10px;
     border-radius: 15px;
-   
     opacity: 0.8;
     width: 100%;
-    animation: fadeIn 2s;
+    animation: fadeIn2 2s;
     transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;
     box-shadow: 1px 1px 1px black ;
     color: #c32aa3;
@@ -100,7 +99,7 @@ const {logo, link, color, title, user} = Astro.props
     
     opacity: 0.8;
     width: 100%;
-    animation: fadeIn 2s;
+    animation: fadeIn2 2s;
     transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;
     box-shadow: 1px 1px 1px black ;
     color: #c4302b;
@@ -122,7 +121,7 @@ const {logo, link, color, title, user} = Astro.props
     
     opacity: 0.8;
     width: 100%;
-    animation: fadeIn 2s;
+    animation: fadeIn2 2s;
     transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;
     box-shadow: 1px 1px 1px black ;
     color: #00f2ea;
@@ -143,7 +142,7 @@ const {logo, link, color, title, user} = Astro.props
     border-radius: 15px;
     opacity: 0.8;
     width: 100%;
-    animation: fadeIn 2s;
+    animation: fadeIn2 2s;
     transition: transform .5s ease, background .5s ease, color .5s ease, box-shadow .5s ease;
     box-shadow: 1px 1px 1px black ;
     color: #1DB954;
@@ -164,7 +163,7 @@ const {logo, link, color, title, user} = Astro.props
     align-items: center;
   }}
 
-  @keyframes fadeIn {
+  @keyframes fadeIn2 {
     from{
       opacity: 0;
     }

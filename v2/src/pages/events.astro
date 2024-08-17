@@ -1,12 +1,12 @@
 ---
-import { EventsPageContent } from "../components/PageContainers/EventsPageCont"
-import Pagination from "../components/pagination.astro"
+import { EventsPageContent } from "../components/Events/Pages/EventsPageCont"
+import Pagination from "../components/General/pagination.astro"
 import Layout from "../layouts/Layout.astro"
 
 ---
 
 
 <Layout title="Eventos y Fechas">
-<EventsPageContent client:load />
+<EventsPageContent inHome={false} client:load />
 <Pagination prev="/bepartof" next="/contact"/>
 </Layout>

@@ -1,0 +1,9 @@
+.slider-container {
+  width: 90%;
+  margin: auto;
+  padding: 5%;
+}
+
+.slick-slide > div {
+  margin: 0 10px;
+}

@@ -25,12 +25,18 @@ export const EventCard = ({
     day: "numeric",
   });
 
+  const formattedTime = eventDate.toLocaleTimeString("es-ES", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
+
   return (
     <div className="bg-gradient-to-r from-gray-100 to-gray-300 shadow-lg rounded-lg overflow-hidden">
       <img src={picture} alt={title} className="w-full h-48 object-cover" />
       <div className="p-4">
         <h2 className="text-xl font-bold mb-2">{title}</h2>
-        <div className="flex items-center text-gray-600 mb-4">
+        <div className="flex items-start sm:items-center text-gray-600 mb-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width={24}
@@ -41,7 +47,7 @@ export const EventCard = ({
             strokeWidth={1.25}
             strokeLinecap="round"
             strokeLinejoin="round"
-            className=" w-5 h-5 mr-1 icon icon-tabler icons-tabler-outline icon-tabler-calendar-month"
+            className="w-5 h-5 mr-1 icon icon-tabler icons-tabler-outline icon-tabler-calendar-month"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M4 7a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12z" />
@@ -56,8 +62,12 @@ export const EventCard = ({
             <path d="M7.01 17h.005" />
             <path d="M10.01 17h.005" />
           </svg>
-          {formattedDate}
+          <div className="flex flex-col sm:flex-row">
+            <p className="text-sm">{formattedDate}</p>
+            <p className="font-bold sm:ml-1 text-sm"> {formattedTime}hs</p>
+          </div>
         </div>
+
         <a
           href={locationLink}
           target="_blank"
@@ -67,9 +77,9 @@ export const EventCard = ({
           <svg className="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z" />
           </svg>
-          {locationName}
+          <p className="text-sm">{locationName}</p>
         </a>
-        <p className="text-gray-700 mb-4">{description}</p>
+        <p className="text-sm text-gray-700 mb-4">{description}</p>
         <a
           href={tickets}
           target="_blank"

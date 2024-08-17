@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Icon from "./Icon.astro";
-import linalogo from "../../public/data/pictures/Lina Logo.png";
 //import { Divider, Drawer, List, ListItem, ListItemText } from "@mui/material";
 
 export const Navbar = () => {
