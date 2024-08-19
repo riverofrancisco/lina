@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import GalleryPageContent from "../components/Gallery/Pages/GalleryPageContent.astro";
+import Pagination from "../components/General/pagination.astro";
 ---
 
 <Layout title="Galeria">
    <GalleryPageContent />
+   <Pagination prev="/events" prevTitle="Fechas" next="/contact" nextTitle="Contacto"/>
 </Layout>

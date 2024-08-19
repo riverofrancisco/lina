@@ -4,9 +4,6 @@ import useEmblaCarousel from "embla-carousel-react";
 import type { EventCardI } from "../Cards/EventCard.tsx";
 import { EventCard } from "../Cards/EventCard.tsx";
 import { Timer } from "../Timer.jsx";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import "./EventsPageCont.css";
 
 const events = [
@@ -183,20 +180,6 @@ export const EventsPageContent = ({ inHome }: EventsPage) => {
               </svg>
             </button>
           </div>
-          {/* <Slider {...settings}>
-            {allEvents.map((evt) => (
-              <EventCard
-                key={`${evt.date}`}
-                title={evt.title}
-                date={evt.date}
-                picture={evt.picture}
-                locationLink={evt.locationLink}
-                locationName={evt.locationName}
-                description={evt.description}
-                tickets={evt.tickets}
-              />
-            ))}
-          </Slider> */}
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 p-5 sm:grid-cols-2 md:grid-cols-3">
