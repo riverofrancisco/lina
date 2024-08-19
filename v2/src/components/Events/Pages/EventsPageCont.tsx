@@ -12,7 +12,7 @@ import "./EventsPageCont.css";
 const events = [
   {
     title: "Festival Internacional de Música",
-    date: "2024-11-15T19:00:00",
+    date: "2024-08-19T19:00:00",
     picture: "/data/pictures/Toma1.jpg",
     locationLink: "https://goo.gl/maps/ABcDef1234",
     locationName: "Parque de la Música, Madrid",
@@ -87,15 +87,16 @@ export const EventsPageContent = ({ inHome }: EventsPage) => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
-  // Root node
-
   let allEvents: EventCardI[] = [];
 
   events.forEach((ev) => {
     allEvents.push(ev);
   });
 
+  //ordeno de mayor a menor y asigno el timer.
+  allEvents.sort((a, b) => new Date(b.date) - new Date(a.date));
   const targetDate = "2024-09-20T00:00:00";
+  //const targetDate = allEvents[0].date;
 
   var settings = {
     dots: true,
@@ -147,40 +148,40 @@ export const EventsPageContent = ({ inHome }: EventsPage) => {
             </div>
           </div>
           <div className="controls__container">
-          <button className="embla__prev control" onClick={scrollPrev}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={24}
-              height={24}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M15 6l-6 6l6 6" />
-            </svg>
-          </button>
-          <button className="embla__next control" onClick={scrollNext}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={24}
-              height={24}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={2}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"
-            >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M9 6l6 6l-6 6" />
-            </svg>
-          </button>
+            <button className="embla__prev control" onClick={scrollPrev}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M15 6l-6 6l6 6" />
+              </svg>
+            </button>
+            <button className="embla__next control" onClick={scrollNext}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={2}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M9 6l6 6l-6 6" />
+              </svg>
+            </button>
           </div>
           {/* <Slider {...settings}>
             {allEvents.map((evt) => (

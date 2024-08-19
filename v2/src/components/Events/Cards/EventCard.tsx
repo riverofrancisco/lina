@@ -18,6 +18,8 @@ export const EventCard = ({
   tickets,
 }: EventCardI) => {
   const eventDate = new Date(date);
+  const currentDate = new Date();
+
   const formattedDate = eventDate.toLocaleDateString("es-ES", {
     weekday: "long",
     year: "numeric",
@@ -31,8 +33,28 @@ export const EventCard = ({
     hour12: false,
   });
 
+  const isPastEvent = eventDate < currentDate;
+  const isToday =
+    eventDate.getDate() === currentDate.getDate() &&
+    eventDate.getMonth() === currentDate.getMonth() &&
+    eventDate.getFullYear() === currentDate.getFullYear();
+
   return (
-    <div className="bg-gradient-to-r from-gray-100 to-gray-300 shadow-lg rounded-lg overflow-hidden">
+    <div
+      className={`relative bg-gradient-to-r ${
+        isPastEvent ? "from-gray-300 to-gray-500" : "from-gray-100 to-gray-300"
+      } ${isToday ? "border-2 border-orange-300" : "border-transparent"} shadow-lg rounded-lg overflow-hidden`}
+    >
+      {isPastEvent && (
+        <div className="absolute top-0 left-0 right-0 bg-red-800 opacity-90 text-white text-center py-1 font-bold">
+          Evento terminado
+        </div>
+      )}
+      {isToday && (
+        <div className="absolute top-0 left-0 right-0 bg-orange-400 opacity-90 text-white text-center py-1 font-bold">
+          Hoy
+        </div>
+      )}
       <img
         src={picture}
         alt={title}
@@ -90,7 +112,9 @@ export const EventCard = ({
           rel="noopener noreferrer"
           className="flex items-center justify-end mb-2"
         >
-          <button className="flex items-center justify-between text-gray-100 bg-gray-900 hover:shadow p-2 rounded transition-all  filled hover:bg-white hover:text-gray-900">
+          <button
+            className={`flex items-center justify-between ${isPastEvent && "button-disabled"} text-gray-100 bg-gray-900 hover:shadow p-2 rounded transition-all  filled hover:bg-white hover:text-gray-900`}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width={24}
