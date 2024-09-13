@@ -1,12 +1,18 @@
 import React, { useState } from "react";
-import Icon from "./Icon.astro";
-//import { Divider, Drawer, List, ListItem, ListItemText } from "@mui/material";
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const currentPath = window.location.pathname;
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const getNavLinkClass = (path: string) => {
+    return currentPath === path
+      ? "md:p-2 text-l opacity-100 border-b-black border-b-2 transition-all ease-in-out duration-300" // Estilo activo
+      : "md:p-2 text-l hover:opacity-100 opacity-70 hover:border-b-black hover:border-b-2 transition-all ease-in-out duration-100"; // Estilo normal
   };
 
   return (
@@ -41,22 +47,22 @@ export const Navbar = () => {
         {menuOpen && (
           <ul className="flex flex-col items-center absolute w-full left-0 top-20 md:hidden z-10 shadow-lg bg-gray-100 ">
             <li className="w-full text-center py-2 hover:bg-orange-100">
-              <a href="/home" className="text-lg block">
+              <a href="/home" className={getNavLinkClass("/home")}>
                 INICIO
               </a>
             </li>
             <li className="w-full text-center py-2 hover:bg-orange-100">
-              <a href="/gallery" className="text-lg block">
-                GALERIA
-              </a>
-            </li>
-            <li className="w-full text-center py-2 hover:bg-orange-100">
-              <a href="/events" className="text-lg block">
+              <a href="/events" className={getNavLinkClass("/events")}>
                 FECHAS
               </a>
             </li>
             <li className="w-full text-center py-2 hover:bg-orange-100">
-              <a href="/contact" className="text-lg block">
+              <a href="/gallery" className={getNavLinkClass("/gallery")}>
+                GALERIA
+              </a>
+            </li>
+            <li className="w-full text-center py-2 hover:bg-orange-100">
+              <a href="/contact" className={getNavLinkClass("/contact")}>
                 CONTACTO
               </a>
             </li>
@@ -65,35 +71,24 @@ export const Navbar = () => {
 
         {/* Menú de navegación para pantallas grandes */}
         <ul className="hidden md:flex md:items-center md:z-auto md:w-auto md:static w-full left-0 top-[-400px] transition-all ease-in duration-500">
-          <li className="hover:border-b border-b-transparent hover:border-b-black transition-all ease-in-out duration-500">
-            <a
-              href="/home"
-              className="md:p-2 text-l hover:opacity-100 opacity-70 transition-all ease-in-out duration-300"
-            >
+          <li>
+            <a href="/home" className={getNavLinkClass("/home")}>
               INICIO
             </a>
           </li>
-          <li className="hover:border-b border-b-transparent hover:border-b-black transition-all ease-in-out duration-500">
-            <a
-              href="/gallery"
-              className="md:p-2 text-l hover:opacity-100 opacity-70 transition-all ease-in-out duration-300"
-            >
-              GALERIA
-            </a>
-          </li>
-          <li className="hover:border-b border-b-transparent hover:border-b-black transition-all ease-in-out duration-500">
-            <a
-              href="/events"
-              className="md:p-2 text-l hover:opacity-100 opacity-70 transition-all ease-in-out duration-300 "
-            >
+          <li>
+            <a href="/events" className={getNavLinkClass("/events")}>
               FECHAS
             </a>
           </li>
-          <li className="hover:border-b border-b-transparent hover:border-b-black transition-all ease-in-out duration-500">
-            <a
-              href="/contact"
-              className="md:p-2 text-l hover:opacity-100 opacity-70 transition-all ease-in-out duration-300 "
-            >
+          <li>
+            <a href="/gallery" className={getNavLinkClass("/gallery")}>
+              GALERIA
+            </a>
+          </li>
+
+          <li>
+            <a href="/contact" className={getNavLinkClass("/contact")}>
               CONTACTO
             </a>
           </li>
