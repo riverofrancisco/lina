@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ContactInfo } from "../../utils/interfaces/interfaces";
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -16,11 +17,21 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="bg-#ffd0bf shadow">
-      <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 md:flex md:items-center md:justify-between">
+    <nav className="shadow">
+      <div className="mx-auto w-full max-w-screen-xl p-4 py-4 lg:py-6 md:flex md:items-center md:justify-between">
         <div className="flex justify-between items-center">
           <span className="text-2xl font-[Roboto]">
-            <a href="/">Lina Rivero</a>
+            <a href="/" className="flex">
+              <img
+                src={ContactInfo.logoLight}
+                className="h-16 me-3"
+                alt="logo"
+                loading="lazy"
+              />
+              <span className="self-center text-2xl font-bold whitespace-nowrap">
+                Lina Rivero
+              </span>
+            </a>
           </span>
           <span
             className="text-3xl cursor-pointer md:hidden block mx-2"
@@ -45,23 +56,23 @@ export const Navbar = () => {
         </div>
 
         {menuOpen && (
-          <ul className="flex flex-col items-center absolute w-full left-0 top-20 md:hidden z-10 shadow-lg bg-gray-100 ">
-            <li className="w-full text-center py-2 hover:bg-orange-100">
+          <ul className="flex flex-col text-orange-100 items-center absolute w-full left-0 top-20 md:hidden z-10 shadow-lg bg-gray-950 ">
+            <li className="w-full text-center py-2 hover:bg-orange-100 hover:text-black">
               <a href="/home" className={getNavLinkClass("/home")}>
                 INICIO
               </a>
             </li>
-            <li className="w-full text-center py-2 hover:bg-orange-100">
+            <li className="w-full text-center py-2 hover:bg-orange-100 hover:text-black">
               <a href="/events" className={getNavLinkClass("/events")}>
                 FECHAS
               </a>
             </li>
-            <li className="w-full text-center py-2 hover:bg-orange-100">
+            <li className="w-full text-center py-2 hover:bg-orange-100 hover:text-black">
               <a href="/gallery" className={getNavLinkClass("/gallery")}>
                 GALERIA
               </a>
             </li>
-            <li className="w-full text-center py-2 hover:bg-orange-100">
+            <li className="w-full text-center py-2 hover:bg-orange-100 hover:text-black">
               <a href="/contact" className={getNavLinkClass("/contact")}>
                 CONTACTO
               </a>

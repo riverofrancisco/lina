@@ -5,76 +5,71 @@ import type { EventCardI } from "../Cards/EventCard.tsx";
 import { EventCard } from "../Cards/EventCard.tsx";
 import { Timer } from "../Timer.jsx";
 import "./EventsPageCont.css";
-import { getEvents } from "../../../Services/querys.ts";
+import { getEvents } from "../../../services/queries.ts";
 
 const events = [
   {
-    title: "Festival Internacional de Música",
-    date: "2024-08-19T19:00:00",
+    title: "Lina en The Monkeys",
+    date: "2024-08-16T22:00:00-03:00",
     picture: "/media/pictures/Toma1.jpg",
-    locationLink: "https://goo.gl/maps/ABcDef1234",
-    locationName: "Parque de la Música, Madrid",
-    description:
-      "Lina Rivero será la artista principal en el Festival Internacional de Música en Madrid, una noche que promete ser inolvidable.",
+    locationLink: "https://maps.app.goo.gl/Ggf23CQXggGcVF5g6",
+    locationName: "The Monkeys, CABA",
+    country: "AR",
+    tickets: "/404",
+  },
+  {
+    title: "Lina en Moscú",
+    date: "2024-08-25T20:00:00-03:00",
+    picture: "/media/pictures/Toma1.jpg",
+    locationLink: "https://maps.app.goo.gl/gFpda1e5SNspsgFx9",
+    locationName: "Moscú Espacio Cultural, CABA",
+    country: "AR",
+    tickets: "/404",
+  },
+  {
+    title: "Festival UNTREF",
+    date: "2024-09-21T20:45:00-03:00",
+    picture: "/media/pictures/Toma1.jpg",
+    locationLink: "https://maps.app.goo.gl/D1cnW5fRD7s6PatG7",
+    locationName: "UNTREF, Buenos Aires",
+    country: "AR",
+    tickets: "/404",
+  },
+  {
+    title: "Atelier de Arte",
+    date: "2024-11-29T21:00:00-03:00",
+    picture: "/media/pictures/Toma1.jpg",
+    locationLink: "https://maps.app.goo.gl/1QQtqch5PXttAe8WA",
+    locationName: "El Atelier, CABA",
+    country: "AR",
     tickets: "",
   },
   {
-    title: "Concierto en la Playa",
-    date: "2024-07-20T18:30:00",
-    picture: "/media/pictures/Toma1.jpg",
-    locationLink: "https://goo.gl/maps/GHiJkl4567",
-    locationName: "Playa Grande, Mar del Plata",
-    description:
-      "Disfruta de un atardecer increíble con la música de Lina Rivero en la hermosa Playa Grande. ¡No te lo pierdas!",
+    title: "Que nos Queda",
+    date: "2024-09-28T22:00:00-03:00",
+    picture: "/media/pictures/qnq.jpg",
+    locationLink: "https://maps.app.goo.gl/Nrsws1q4F2sUZe769",
+    locationName: "Deckers Beer, Sarandí, Buenos Aires",
+    country: "AR",
     tickets: "",
   },
   {
-    title: "Gira Sudamericana",
-    date: "2024-09-10T20:00:00",
+    title: "Lina en Conjura",
+    date: "2024-09-29T22:00:00-03:00",
     picture: "/media/pictures/Toma1.jpg",
-    locationLink: "https://goo.gl/maps/MNoPqr7890",
-    locationName: "Estadio Nacional, Santiago",
-    description:
-      "Lina Rivero llega a Santiago de Chile como parte de su Gira Sudamericana. ¡Asegura tu entrada y sé parte de este evento histórico!",
-    tickets: "",
-  },
-  {
-    title: "El gato danzarín",
-    date: "2024-11-15T19:00:00",
-    picture: "/media/pictures/Toma1.jpg",
-    locationLink: "https://goo.gl/maps/ABcDef1234",
-    locationName: "Parque de la Música, Madrid",
-    description:
-      "Lina Rivero será la artista principal en el Festival Internacional de Música en Madrid, una noche que promete ser inolvidable.",
-    tickets: "",
-  },
-  {
-    title: "Vuela el Pez",
-    date: "2024-07-20T18:30:00",
-    picture: "/media/pictures/Toma1.jpg",
-    locationLink: "https://goo.gl/maps/GHiJkl4567",
-    locationName: "Playa Grande, Mar del Plata",
-    description:
-      "Disfruta de un atardecer increíble con la música de Lina Rivero en la hermosa Playa Grande. ¡No te lo pierdas!",
-    tickets: "",
-  },
-  {
-    title: "The Roxy Bar",
-    date: "2024-09-10T20:00:00",
-    picture: "/media/pictures/Toma1.jpg",
-    locationLink: "https://goo.gl/maps/MNoPqr7890",
-    locationName: "Estadio Nacional, Santiago",
-    description:
-      "Lina Rivero llega a Santiago de Chile como parte de su Gira Sudamericana. ¡Asegura tu entrada y sé parte de este evento histórico!",
-    tickets: "",
+    locationLink: "https://maps.app.goo.gl/cuqjopyemU3VcKXEA",
+    locationName: "Club Conjura, CABA",
+    country: "AR",
+    tickets: "https://www.passline.com/eventos/voidpalooza-en-club-conjura",
   },
 ];
 
-interface EventsPage {
+interface IEventsPage {
   inHome: boolean;
+  eventsData: any[];
 }
 
-export const EventsPageContent = ({ inHome }: EventsPage) => {
+export const EventsPageContent = ({ inHome, eventsData }: IEventsPage) => {
   const [emblaRef, emblaApi] = useEmblaCarousel();
 
   const scrollPrev = useCallback(() => {
@@ -84,17 +79,6 @@ export const EventsPageContent = ({ inHome }: EventsPage) => {
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
-
-  let allEvents: EventCardI[] = [];
-
-  events.forEach((ev) => {
-    allEvents.push(ev);
-  });
-
-  //ordeno de mayor a menor y asigno el timer.
- 
-  const targetDate = "2024-09-20T00:00:00-03:00";
-  
 
   var settings = {
     dots: true,
@@ -123,7 +107,10 @@ export const EventsPageContent = ({ inHome }: EventsPage) => {
     ],
   };
 
-  useEffect(() => {}, []);
+
+
+
+  let targetDate = "2024-09-21T20:45:00-03:00";
 
   return (
     <div>
@@ -132,7 +119,7 @@ export const EventsPageContent = ({ inHome }: EventsPage) => {
         <div className="embla">
           <div className="embla__viewport" ref={emblaRef}>
             <div className="embla__container">
-              {allEvents.map((evt) => (
+              {eventsData && eventsData.map((evt) => (
                 <div key={`${evt.date}`} className="embla__slide">
                   <EventCard
                     title={evt.title}
@@ -140,8 +127,8 @@ export const EventsPageContent = ({ inHome }: EventsPage) => {
                     picture={evt.picture}
                     locationLink={evt.locationLink}
                     locationName={evt.locationName}
-                    description={evt.description}
                     tickets={evt.tickets}
+                    country={evt.country}
                   />
                 </div>
               ))}
@@ -186,7 +173,7 @@ export const EventsPageContent = ({ inHome }: EventsPage) => {
         </div>
       ) : (
         <div className="grid grid-cols-1 gap-4 p-5 sm:grid-cols-2 md:grid-cols-3">
-          {allEvents.map((evt) => (
+          {eventsData && eventsData.map((evt) => (
             <EventCard
               key={`${evt.date}`}
               title={evt.title}
@@ -194,7 +181,7 @@ export const EventsPageContent = ({ inHome }: EventsPage) => {
               picture={evt.picture}
               locationLink={evt.locationLink}
               locationName={evt.locationName}
-              description={evt.description}
+              country={evt.country}
               tickets={evt.tickets}
             />
           ))}

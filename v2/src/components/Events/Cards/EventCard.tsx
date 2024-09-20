@@ -4,7 +4,7 @@ export interface EventCardI {
   picture: string;
   locationLink: string;
   locationName: string;
-  description: string;
+  country: string;
   tickets: string;
 }
 
@@ -14,7 +14,7 @@ export const EventCard = ({
   picture,
   locationLink,
   locationName,
-  description,
+  country,
   tickets,
 }: EventCardI) => {
   const eventDate = new Date(date);
@@ -58,7 +58,13 @@ export const EventCard = ({
       <img
         src={picture}
         alt={title}
+        loading="lazy"
         className="w-full h-48 object-cover lazyload"
+        style={{
+          width: "100%", // Responsive width
+          aspectRatio: 16/9, // Maintain aspect ratio
+          objectFit: "cover", // Ensures all images have the same aspect ratio
+        }}
       />
       <div className="p-4">
         <h2 className="text-xl font-bold mb-2">{title}</h2>
@@ -93,49 +99,54 @@ export const EventCard = ({
             <p className="font-bold sm:ml-1 text-sm"> {formattedTime}hs</p>
           </div>
         </div>
-
-        <a
-          href={locationLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center font-bold mb-2"
-        >
-          <svg className="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z" />
-          </svg>
-          <p className="text-sm">{locationName}</p>
-        </a>
-        <p className="text-sm text-gray-700 mb-4">{description}</p>
-        <a
-          href={tickets}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-end mb-2"
-        >
-          <button
-            className={`flex items-center justify-between ${isPastEvent && "button-disabled"} text-gray-100 bg-gray-900 hover:shadow p-2 rounded transition-all  filled hover:bg-white hover:text-gray-900`}
+        <div className="flex justify-between">
+          <a
+            href={locationLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center font-bold mb-2"
           >
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width={24}
-              height={24}
+              className="w-5 h-5 mr-1"
+              fill="currentColor"
               viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth={1}
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className=" w-5 h-5 mr-1 icon icon-tabler icons-tabler-outline icon-tabler-ticket"
             >
-              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-              <path d="M15 5l0 2" />
-              <path d="M15 11l0 2" />
-              <path d="M15 17l0 2" />
-              <path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2" />
+              <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z" />
             </svg>
-            Comprar entradas
-          </button>
-        </a>
+            <p className="text-sm">{locationName}</p>
+          </a>
+
+          <a
+            href={tickets}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-end mb-2"
+          >
+            <button
+              className={`flex items-center justify-between ${isPastEvent && "button-disabled"} text-gray-100 bg-gray-900 hover:shadow p-2 rounded transition-all  filled hover:bg-white hover:text-gray-900`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={24}
+                height={24}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth={1}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className=" w-5 h-5 mr-1 icon icon-tabler icons-tabler-outline icon-tabler-ticket"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M15 5l0 2" />
+                <path d="M15 11l0 2" />
+                <path d="M15 17l0 2" />
+                <path d="M5 5h14a2 2 0 0  1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2" />
+              </svg>
+              Entradas
+            </button>
+          </a>
+        </div>
       </div>
     </div>
   );

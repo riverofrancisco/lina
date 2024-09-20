@@ -14,9 +14,17 @@
   margin-inline-start: 5px;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 500px) {
   .embla__slide {
-    flex: 0 0 35%;
+    flex: 0 0 45%;
+    margin-inline-start: 10px;
+    margin-inline-end: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .embla__slide {
+    flex: 0 0 27%;
     margin-inline-start: 10px;
     margin-inline-end: 20px;
   }

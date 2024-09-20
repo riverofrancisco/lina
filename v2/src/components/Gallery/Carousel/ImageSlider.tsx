@@ -53,7 +53,9 @@ export function ImageSlider({ imageUrls }: ImageSliderProps) {
             key={url}
             src={url}
             className="img-slider-img"
-            style={{ translate: `${-100 * imageIndex}%` }} loading="lazy"
+            style={{ translate: `${-100 * imageIndex}%` }}
+            loading="lazy"
+            alt="welcome"
           />
         ))}
       </div>

@@ -4,13 +4,17 @@ import Pagination from "../components/General/pagination.astro";
 import Layout from "../layouts/Layout.astro";
 import { HomeCarousel } from "../components/Gallery/Carousel/Carousel";
 import { EventsPageContent } from "../components/Events/Pages/EventsPageCont";
-import GalleryPageContent from "../components/Gallery/Pages/GalleryPageContent.astro";
+import { getEvents, getGalleryPictures } from "../services/queries";
+import { GalleryComponent } from "../components/Gallery/GalleryPictures";
+
+const eventsData = await getEvents();
+const picturesData = await getGalleryPictures();
 ---
 
 <Layout title="Lina Rivero" >
 <HomeCarousel client:visible/>
-<EventsPageContent inHome={true} client:load />
-<GalleryPageContent />
+<EventsPageContent inHome={true} eventsData={eventsData} client:visible />
+<GalleryComponent inHome={true} picturesData={picturesData} client:visible />
 <Pagination prev="/contact" prevTitle="Contacto" next="/events" nextTitle="Fechas" />
 </Layout>
 
@@ -19,7 +23,6 @@ import GalleryPageContent from "../components/Gallery/Pages/GalleryPageContent.a
     display: grid;
     margin-top: 10px;
     grid-template-columns: 1fr 2fr;
-
     column-span: 20;
     width: 100vw;
     padding-left: 10%;

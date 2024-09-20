@@ -2,10 +2,14 @@
 import { EventsPageContent } from "../components/Events/Pages/EventsPageCont"
 import Pagination from "../components/General/pagination.astro"
 import Layout from "../layouts/Layout.astro"
+import { getEvents } from "../services/queries";
+
+
+const eventsData = await getEvents();
 
 ---
 
 <Layout title="Eventos y Fechas">
-<EventsPageContent inHome={false} client:load />
+<EventsPageContent inHome={false} eventsData={eventsData} client:visible />
 <Pagination prev="/home" prevTitle="Inicio" next="/gallery" nextTitle="Galeria" />
 </Layout>
