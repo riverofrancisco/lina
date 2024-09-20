@@ -80,13 +80,22 @@ export const EventsPageContent = ({ inHome, eventsData }: IEventsPage) => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
-  var settings = {
+  //logica para el evento más próximo
+  const [targetDate, setTargetDate] = useState<string | null>(null);
+  const [nextEventIndex, setNextEventIndex] = useState<number | null>(0);
+  const currentDate = new Date();
+
+  const sortedEvents = eventsData.sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
+
+  let settings = {
     dots: true,
     infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
-    initialSlide: 0,
+    initialSlide: nextEventIndex,
     responsive: [
       {
         breakpoint: 1024,
@@ -107,10 +116,20 @@ export const EventsPageContent = ({ inHome, eventsData }: IEventsPage) => {
     ],
   };
 
+  useEffect(() => {
+    const nextEventIndex = sortedEvents.findIndex(
+      (event) => new Date(event.date) < currentDate,
+    );
 
+    if (nextEventIndex !== -1) {
+      setTargetDate(sortedEvents[nextEventIndex - 1].date);
+      setNextEventIndex(nextEventIndex - 1  );
+    }
 
-
-  let targetDate = "2024-09-21T20:45:00-03:00";
+    if (emblaApi && nextEventIndex !== null) {
+      emblaApi.scrollTo(nextEventIndex -1); // Desplazar a la tarjeta correcta
+    }
+  }, [sortedEvents, currentDate, emblaApi]);
 
   return (
     <div>
@@ -119,19 +138,20 @@ export const EventsPageContent = ({ inHome, eventsData }: IEventsPage) => {
         <div className="embla">
           <div className="embla__viewport" ref={emblaRef}>
             <div className="embla__container">
-              {eventsData && eventsData.map((evt) => (
-                <div key={`${evt.date}`} className="embla__slide">
-                  <EventCard
-                    title={evt.title}
-                    date={evt.date}
-                    picture={evt.picture}
-                    locationLink={evt.locationLink}
-                    locationName={evt.locationName}
-                    tickets={evt.tickets}
-                    country={evt.country}
-                  />
-                </div>
-              ))}
+              {sortedEvents &&
+                sortedEvents.map((evt) => (
+                  <div key={`${evt.date}`} className="embla__slide">
+                    <EventCard
+                      title={evt.title}
+                      date={evt.date}
+                      picture={evt.picture}
+                      locationLink={evt.locationLink}
+                      locationName={evt.locationName}
+                      tickets={evt.tickets}
+                      country={evt.country}
+                    />
+                  </div>
+                ))}
             </div>
           </div>
           <div className="controls__container">
@@ -172,19 +192,20 @@ export const EventsPageContent = ({ inHome, eventsData }: IEventsPage) => {
           </div>
         </div>
       ) : (
-        <div className="grid grid-cols-1 gap-4 p-5 sm:grid-cols-2 md:grid-cols-3">
-          {eventsData && eventsData.map((evt) => (
-            <EventCard
-              key={`${evt.date}`}
-              title={evt.title}
-              date={evt.date}
-              picture={evt.picture}
-              locationLink={evt.locationLink}
-              locationName={evt.locationName}
-              country={evt.country}
-              tickets={evt.tickets}
-            />
-          ))}
+        <div className="mx-10 md:mx-32 grid grid-cols-1 gap-4 p-5 sm:grid-cols-2 md:grid-cols-3">
+          {sortedEvents &&
+            sortedEvents.map((evt) => (
+              <EventCard
+                key={`${evt.date}`}
+                title={evt.title}
+                date={evt.date}
+                picture={evt.picture}
+                locationLink={evt.locationLink}
+                locationName={evt.locationName}
+                country={evt.country}
+                tickets={evt.tickets}
+              />
+            ))}
         </div>
       )}
     </div>

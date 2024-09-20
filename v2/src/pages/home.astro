@@ -15,7 +15,7 @@ const picturesData = await getGalleryPictures();
 <HomeCarousel client:visible/>
 <EventsPageContent inHome={true} eventsData={eventsData} client:visible />
 <GalleryComponent inHome={true} picturesData={picturesData} client:visible />
-<Pagination prev="/contact" prevTitle="Contacto" next="/events" nextTitle="Fechas" />
+<Pagination prev="/gallery" prevTitle="Galeria" next="/events" nextTitle="Fechas" />
 </Layout>
 
 <style>

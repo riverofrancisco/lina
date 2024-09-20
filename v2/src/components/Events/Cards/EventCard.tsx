@@ -34,24 +34,36 @@ export const EventCard = ({
   });
 
   const isPastEvent = eventDate < currentDate;
+
   const isToday =
     eventDate.getDate() === currentDate.getDate() &&
     eventDate.getMonth() === currentDate.getMonth() &&
     eventDate.getFullYear() === currentDate.getFullYear();
 
+  const oneWeekInMs = 7 * 24 * 60 * 60 * 1000; // Una semana en milisegundos
+  const isThisWeek =
+    eventDate > currentDate &&
+    eventDate.getTime() - currentDate.getTime() < oneWeekInMs;
+
+
   return (
     <div
       className={`relative bg-gradient-to-r ${
         isPastEvent ? "from-gray-300 to-gray-500" : "from-gray-100 to-gray-300"
-      } ${isToday ? "border-2 border-orange-300" : "border-transparent"} shadow-lg rounded-lg overflow-hidden`}
+      } ${isToday ? "border-2 border-green-300" : "border-transparent"} ${isThisWeek ? "border-2 border-orange-300" : "border-transparent"} shadow-lg rounded-lg overflow-hidden`}
     >
       {isPastEvent && (
         <div className="absolute top-0 left-0 right-0 bg-red-800 opacity-90 text-white text-center py-1 font-bold">
           Evento terminado
         </div>
       )}
-      {isToday && (
+      {isThisWeek && (
         <div className="absolute top-0 left-0 right-0 bg-orange-400 opacity-90 text-white text-center py-1 font-bold">
+          Esta Semana
+        </div>
+      )}
+      {isToday && (
+        <div className="absolute top-0 left-0 right-0 bg-green-400 opacity-90 text-white text-center py-1 font-bold">
           Hoy
         </div>
       )}
@@ -62,7 +74,7 @@ export const EventCard = ({
         className="w-full h-48 object-cover lazyload"
         style={{
           width: "100%", // Responsive width
-          aspectRatio: 16/9, // Maintain aspect ratio
+          aspectRatio: 16 / 9, // Maintain aspect ratio
           objectFit: "cover", // Ensures all images have the same aspect ratio
         }}
       />

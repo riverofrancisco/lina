@@ -72,11 +72,11 @@ export const Navbar = () => {
                 GALERIA
               </a>
             </li>
-            <li className="w-full text-center py-2 hover:bg-orange-100 hover:text-black">
+           {/*  <li className="w-full text-center py-2 hover:bg-orange-100 hover:text-black">
               <a href="/contact" className={getNavLinkClass("/contact")}>
                 CONTACTO
               </a>
-            </li>
+            </li> */}
           </ul>
         )}
 
@@ -98,11 +98,11 @@ export const Navbar = () => {
             </a>
           </li>
 
-          <li>
+        {/*   <li>
             <a href="/contact" className={getNavLinkClass("/contact")}>
               CONTACTO
             </a>
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>

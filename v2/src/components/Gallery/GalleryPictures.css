@@ -6,6 +6,8 @@
   );
   gap: 10px; 
   padding: 20px;
+  margin: 0 10%; /* Margen del 10% a los lados */
+  max-width: 80%;
 }
 
 .gallery-image {
