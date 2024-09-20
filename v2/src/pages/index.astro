@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import LinaCard from "../components/General/LinaCard.astro";
 import PhotoLayout from "../layouts/PhotoLayout.astro";
 import VideoWelcome from "../components/Gallery/Cards/VideoWelcome.astro";
+import { ContactInfo } from "../utils/interfaces/interfaces";
 ---
 
 <PhotoLayout title="Lina Rivero Links">
@@ -16,11 +17,11 @@ import VideoWelcome from "../components/Gallery/Cards/VideoWelcome.astro";
         logo="share"
       />
       <LinaCard
-        link="https://open.spotify.com/artist/3binED05LZgUfuz7ODLCMX?si=9yS8RHbTTEieMvOW7aygig"
+        link={ContactInfo.spotifyLink}
         title="Escucha mis canciones"
         logo="sing"
       />
-      <LinaCard link="/contact" title="Contratar Show" logo="mail" />
+      <LinaCard link={ContactInfo.mailLink} title="Contratar Show" logo="mail" />
       <LinaCard link="/home" title="Ver Más" logo="add" />
     </ul>    
   </main>

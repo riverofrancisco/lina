@@ -9,7 +9,7 @@ import GalleryPageContent from "../components/Gallery/Pages/GalleryPageContent.a
 
 <Layout title="Lina Rivero" >
 <HomeCarousel client:visible/>
-<EventsPageContent inHome={true} client:visible />
+<EventsPageContent inHome={true} client:load />
 <GalleryPageContent />
 <Pagination prev="/contact" prevTitle="Contacto" next="/events" nextTitle="Fechas" />
 </Layout>

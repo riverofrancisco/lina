@@ -1,6 +1,6 @@
-import car1 from "../../../../public/data/pictures/carousel/guitarra.jpg";
-import car2 from "../../../../public/data/pictures/carousel/corrientes.jpg";
-import car3 from "../../../../public/data/pictures/carousel/toma1.jpg";
+import car1 from "../../../../public/media/pictures/carousel/holaguido.jpg";
+import car2 from "../../../../public/media/pictures/carousel/corrientes.jpg";
+import car3 from "../../../../public/media/pictures/carousel/lacabeza.jpg";
 import { ImageSlider } from "./ImageSlider";
 import React from "react";
 

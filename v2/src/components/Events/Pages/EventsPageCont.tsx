@@ -5,12 +5,13 @@ import type { EventCardI } from "../Cards/EventCard.tsx";
 import { EventCard } from "../Cards/EventCard.tsx";
 import { Timer } from "../Timer.jsx";
 import "./EventsPageCont.css";
+import { getEvents } from "../../../Services/querys.ts";
 
 const events = [
   {
     title: "Festival Internacional de Música",
     date: "2024-08-19T19:00:00",
-    picture: "/data/pictures/Toma1.jpg",
+    picture: "/media/pictures/Toma1.jpg",
     locationLink: "https://goo.gl/maps/ABcDef1234",
     locationName: "Parque de la Música, Madrid",
     description:
@@ -20,7 +21,7 @@ const events = [
   {
     title: "Concierto en la Playa",
     date: "2024-07-20T18:30:00",
-    picture: "/data/pictures/Toma1.jpg",
+    picture: "/media/pictures/Toma1.jpg",
     locationLink: "https://goo.gl/maps/GHiJkl4567",
     locationName: "Playa Grande, Mar del Plata",
     description:
@@ -30,7 +31,7 @@ const events = [
   {
     title: "Gira Sudamericana",
     date: "2024-09-10T20:00:00",
-    picture: "/data/pictures/Toma1.jpg",
+    picture: "/media/pictures/Toma1.jpg",
     locationLink: "https://goo.gl/maps/MNoPqr7890",
     locationName: "Estadio Nacional, Santiago",
     description:
@@ -40,7 +41,7 @@ const events = [
   {
     title: "El gato danzarín",
     date: "2024-11-15T19:00:00",
-    picture: "/data/pictures/Toma1.jpg",
+    picture: "/media/pictures/Toma1.jpg",
     locationLink: "https://goo.gl/maps/ABcDef1234",
     locationName: "Parque de la Música, Madrid",
     description:
@@ -50,7 +51,7 @@ const events = [
   {
     title: "Vuela el Pez",
     date: "2024-07-20T18:30:00",
-    picture: "/data/pictures/Toma1.jpg",
+    picture: "/media/pictures/Toma1.jpg",
     locationLink: "https://goo.gl/maps/GHiJkl4567",
     locationName: "Playa Grande, Mar del Plata",
     description:
@@ -60,7 +61,7 @@ const events = [
   {
     title: "The Roxy Bar",
     date: "2024-09-10T20:00:00",
-    picture: "/data/pictures/Toma1.jpg",
+    picture: "/media/pictures/Toma1.jpg",
     locationLink: "https://goo.gl/maps/MNoPqr7890",
     locationName: "Estadio Nacional, Santiago",
     description:
@@ -91,9 +92,9 @@ export const EventsPageContent = ({ inHome }: EventsPage) => {
   });
 
   //ordeno de mayor a menor y asigno el timer.
-  allEvents.sort((a, b) => new Date(b.date) - new Date(a.date));
-  const targetDate = "2024-09-20T00:00:00";
-  //const targetDate = allEvents[0].date;
+ 
+  const targetDate = "2024-09-20T00:00:00-03:00";
+  
 
   var settings = {
     dots: true,
@@ -121,6 +122,8 @@ export const EventsPageContent = ({ inHome }: EventsPage) => {
       },
     ],
   };
+
+  useEffect(() => {}, []);
 
   return (
     <div>
