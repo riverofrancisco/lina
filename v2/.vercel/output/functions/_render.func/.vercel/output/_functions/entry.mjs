@@ -9,7 +9,6 @@ import 'fast-glob';
 import nodePath from 'node:path';
 import buffer from 'node:buffer';
 import crypto$1 from 'node:crypto';
-import { onRequest } from './_noop-middleware.mjs';
 
 function shouldAppendForwardSlash(trailingSlash, buildFormat) {
   switch (trailingSlash) {
@@ -2649,6 +2648,7 @@ const _page6 = () => import('./pages/home.astro.mjs');
 const _page7 = () => import('./pages/socialmedia.astro.mjs');
 const _page8 = () => import('./pages/index.astro.mjs');
 
+
 const pageMap = new Map([
     ["node_modules/astro/dist/assets/endpoint/generic.js", _page0],
     ["src/pages/404.astro", _page1],
@@ -2661,15 +2661,15 @@ const pageMap = new Map([
     ["src/pages/index.astro", _page8]
 ]);
 const serverIslandMap = new Map();
-
+const middleware = (_, next) => next();
 const _manifest = Object.assign(manifest, {
     pageMap,
     serverIslandMap,
     renderers,
-    middleware: onRequest
+    middleware
 });
 const _args = {
-    "middlewareSecret": "6b5ab4a9-595f-4d5a-9dfc-20ebb74e93cb",
+    "middlewareSecret": "dc97c2cb-2bad-4f10-8520-6dd9aa743881",
     "skewProtection": false
 };
 const _exports = createExports(_manifest, _args);
