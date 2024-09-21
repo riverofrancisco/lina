@@ -1,0 +1,13 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Pagination from "../components/General/pagination.astro";
+import { getGalleryPictures } from "../services/queries";
+import { GalleryComponent } from '../components/Gallery/GalleryPictures'
+
+const picturesData = await getGalleryPictures()
+---
+
+<Layout title="Galeria">
+   <GalleryComponent inHome={false} picturesData={picturesData}/>
+   <Pagination prev="/events" prevTitle="Fechas" next="/home" nextTitle="Inicio"/>
+</Layout>

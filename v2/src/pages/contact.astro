@@ -1,0 +1,12 @@
+---
+import ButtonHome from "../components/General/ButtonHome.astro";
+import ContactPageCont from "../components/Contact/Pages/ContactPageCont.astro";
+import Pagination from "../components/General/pagination.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contratar Show">
+  <ContactPageCont />
+  <Pagination prev="/gallery" prevTitle="Galeria" next="/home" nextTitle="Inicio"/>
+</Layout>
+

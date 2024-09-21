@@ -1,0 +1,59 @@
+---
+import videoSrc from '../../../media/videos/homeToma1.mp4';
+---
+
+ <video muted autoplay loop>
+  <source src={videoSrc} type="video/mp4" >
+ </video>
+ <div class="capa"></div>
+
+ 
+<style>
+  .welcome {
+    position: relative;
+    min-height: 100vh; 
+  }
+
+  .title {
+    position: relative;
+    z-index: 20;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 1px 1px black;
+    padding-top: 15%;
+  }
+  
+  .capa {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: #1c1c1d;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+    z-index: 2;
+  }
+    
+  video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 2;
+  }
+
+  h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+</style>
