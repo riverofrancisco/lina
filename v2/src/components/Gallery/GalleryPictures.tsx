@@ -24,7 +24,7 @@ export const GalleryComponent = ({
           <img
             key={index}
             src={picture.url}
-            alt={`Gallery image ${index}`}
+            alt={`pic number ${index}`}
             className="gallery-image"
             loading="lazy"
           />

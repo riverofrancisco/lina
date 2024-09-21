@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 
 export interface EventCardI {
   title: string;
@@ -20,6 +21,9 @@ export const EventCard = ({
 }: EventCardI) => {
   const eventDate = new Date(date);
   const currentDate = new Date();
+
+  const [isFree, setIsFree] = useState(false);
+  const [ticketsText, setTicketsText] = useState("ENTRADAS");
 
   const formattedDate = eventDate.toLocaleDateString("es-ES", {
     weekday: "long",
@@ -45,6 +49,13 @@ export const EventCard = ({
   const isThisWeek =
     eventDate > currentDate &&
     eventDate.getTime() - currentDate.getTime() < oneWeekInMs;
+
+  useEffect(() => {
+    if (tickets.indexOf("/") === -1) {
+      setIsFree(true);
+      setTicketsText(tickets);
+    }
+  });
 
   return (
     <div
@@ -129,13 +140,14 @@ export const EventCard = ({
           </a>
 
           <a
-            href={tickets}
+            href={!isFree ? tickets : "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-end mb-2"
           >
             <button
-              className={`flex items-center justify-between ${isPastEvent && "button-disabled"} text-gray-100 bg-gray-900 hover:shadow p-2 rounded transition-all  filled hover:bg-white hover:text-gray-900`}
+              className={`flex items-center justify-between ${isFree ? 'text-black outlined border-2 border-black p-2 text-sm bg-white rounded' : 'text-gray-100 bg-gray-900 hover:shadow p-2 rounded transition-all filled hover:bg-white hover:text-gray-900'}`}
+              disabled={isFree}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -155,7 +167,7 @@ export const EventCard = ({
                 <path d="M15 17l0 2" />
                 <path d="M5 5h14a2 2 0 0  1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-3a2 2 0 0 0 0 -4v-3a2 2 0 0 1 2 -2" />
               </svg>
-              Entradas
+              {ticketsText}
             </button>
           </a>
         </div>

@@ -89,32 +89,7 @@ export const EventsPageContent = ({ inHome, eventsData }: IEventsPage) => {
     return new Date(b.date).getTime() - new Date(a.date).getTime();
   });
 
-  let settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    initialSlide: nextEventIndex,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  
 
   useEffect(() => {
     const nextEventIndex = sortedEvents.findIndex(
@@ -130,6 +105,9 @@ export const EventsPageContent = ({ inHome, eventsData }: IEventsPage) => {
       emblaApi.scrollTo(nextEventIndex -1); // Desplazar a la tarjeta correcta
     }
   }, [sortedEvents, currentDate, emblaApi]);
+
+
+
 
   return (
     <div>
