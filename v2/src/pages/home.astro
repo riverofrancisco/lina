@@ -6,15 +6,17 @@ import { HomeCarousel } from "../components/Gallery/Carousel/Carousel";
 import { EventsPageContent } from "../components/Events/Pages/EventsPageCont";
 import { getEvents, getGalleryPictures } from "../services/queries";
 import { GalleryComponent } from "../components/Gallery/GalleryPictures";
+import { Navbar } from "../components/General/Navbar";
 
 const eventsData = await getEvents();
 const picturesData = await getGalleryPictures();
 ---
 
 <Layout title="Lina Rivero" >
+
 <HomeCarousel client:visible/>
-<EventsPageContent inHome={true} eventsData={eventsData} client:visible />
-<GalleryComponent inHome={true} picturesData={picturesData} client:visible />
+<EventsPageContent inHome={true} eventsData={eventsData} client:visible/>
+<GalleryComponent inHome={true} picturesData={picturesData}/>
 <Pagination prev="/gallery" prevTitle="Galeria" next="/events" nextTitle="Fechas" />
 </Layout>
 

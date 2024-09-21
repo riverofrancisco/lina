@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ContactInfo } from "../../utils/interfaces/interfaces";
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const currentPath = window.location.pathname;
-
+  const [currentPath, setCurrentPath] = useState('/home')
+  
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -15,6 +14,10 @@ export const Navbar = () => {
       ? "md:p-2 text-l opacity-100 border-b-black border-b-2 transition-all ease-in-out duration-300" // Estilo activo
       : "md:p-2 text-l hover:opacity-100 opacity-70 hover:border-b-black hover:border-b-2 transition-all ease-in-out duration-100"; // Estilo normal
   };
+
+   useEffect(() => {
+     setCurrentPath(window.location.pathname);
+   }, []);
 
   return (
     <nav className="shadow">

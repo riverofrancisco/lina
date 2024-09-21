@@ -1,3 +1,4 @@
+
 export interface EventCardI {
   title: string;
   date: string;
@@ -44,7 +45,6 @@ export const EventCard = ({
   const isThisWeek =
     eventDate > currentDate &&
     eventDate.getTime() - currentDate.getTime() < oneWeekInMs;
-
 
   return (
     <div
