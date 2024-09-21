@@ -1,0 +1,69 @@
+---
+import SocialMediaCard from "../components/SocialMedia/Cards/SocialMediaCard.astro"
+import SocialMediaLayout from "../layouts/SocialMediaLayout.astro"
+import LinaCard from "../components/General/LinaCard.astro"
+import { ContactInfo } from "../utils/interfaces/interfaces"
+export const prerender = false;
+---
+<SocialMediaLayout title="Social Media">
+    <main>
+        <div class="social-media-grid">
+            <SocialMediaCard link=`${ContactInfo.youtubeLink}` title="Youtube" logo="youtube" user=`@${ContactInfo.mediaUser}`/>
+            <SocialMediaCard link=`${ContactInfo.spotifyLink}` title="Spotify" logo="spoty2" user="Lina Rivero"/>
+            <SocialMediaCard link=`${ContactInfo.instagramLink}` title="Instagram"  logo="insta" user=`@${ContactInfo.mediaUser}`/>
+            <SocialMediaCard link=`${ContactInfo.tiktokLink}` title="Tiktok" logo="tiktok" user=`${ContactInfo.mediaUser}`/>     
+        </div>
+    
+
+<div class="nav">
+    <LinaCard link="/" title="Volver" logo="back" />
+    <LinaCard link="/home" title="Ver Más" logo="add" />
+    
+</div>
+   
+</main>
+</SocialMediaLayout>
+
+<style>
+    .nav {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit, minmax(2ch, 1fr));
+        gap: 1rem;
+        padding: 2%;
+    }
+
+    .social-media-grid {
+        display: grid;
+        padding: 2%;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    @media (min-width: 768px) {
+  .social-media-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .social-media-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+    main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    width: 100vw;
+    min-height: 100vh;
+    color: #ffd0bf;
+    font-size: 20px;
+    background: url(../../media/pictures/Toma1.jpg) no-repeat center center fixed;
+    background-size: cover;
+  }
+</style>
