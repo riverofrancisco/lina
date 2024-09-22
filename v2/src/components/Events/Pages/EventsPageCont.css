@@ -8,6 +8,7 @@
 .embla__container {
   display: flex;
 }
+
 .embla__slide {
   flex: 0 0 90%;
   min-width: 0;

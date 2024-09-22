@@ -103,9 +103,6 @@ export const EventsPageContent = ({ inHome, eventsData }: IEventsPage) => {
     }
   }, [sortedEvents, currentDate, emblaApi]);
 
-
-
-
   return (
     <div>
       <Timer nextDate={targetDate} />
@@ -167,7 +164,7 @@ export const EventsPageContent = ({ inHome, eventsData }: IEventsPage) => {
           </div>
         </div>
       ) : (
-        <div className="mx-10 md:mx-32 grid grid-cols-1 gap-4 p-5 sm:grid-cols-2 md:grid-cols-3">
+        <div className="mx-4 md:mx-32 grid grid-cols-1 gap-4 p-5 sm:grid-cols-2 md:grid-cols-3">
           {sortedEvents &&
             sortedEvents.map((evt) => (
               <EventCard
