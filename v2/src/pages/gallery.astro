@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Pagination from "../components/General/pagination.astro";
-import { getGalleryPictures } from "../services/queries";
+import { getGalleryPictures } from "../services/queries.ts";
 import { GalleryComponent } from '../components/Gallery/GalleryPictures'
 
 const picturesData = await getGalleryPictures()

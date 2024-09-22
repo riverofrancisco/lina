@@ -4,9 +4,8 @@ import Pagination from "../components/General/pagination.astro";
 import Layout from "../layouts/Layout.astro";
 import { HomeCarousel } from "../components/Gallery/Carousel/Carousel";
 import { EventsPageContent } from "../components/Events/Pages/EventsPageCont";
-import { getEvents, getGalleryPictures } from "../services/queries";
+import { getEvents, getGalleryPictures } from "../services/queries.ts";
 import { GalleryComponent } from "../components/Gallery/GalleryPictures";
-import { Navbar } from "../components/General/Navbar";
 
 const eventsData = await getEvents();
 const picturesData = await getGalleryPictures();
