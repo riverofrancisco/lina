@@ -9,8 +9,7 @@ interface SocialMediaCard {
 }
 
 const {logo, link, color, title, user} = Astro.props
-
-
+export const prerender = true;
 ---
 
 <div class=`media-${logo}`>

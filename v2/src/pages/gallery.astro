@@ -5,6 +5,8 @@ import { getGalleryPictures } from "../services/queries";
 import { GalleryComponent } from '../components/Gallery/GalleryPictures'
 
 const picturesData = await getGalleryPictures()
+export const prerender = false;
+
 ---
 
 <Layout title="Galeria">
