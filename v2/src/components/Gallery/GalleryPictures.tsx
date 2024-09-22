@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { getGalleryPictures } from "../../services/queries";
 import "./GalleryPictures.css";
 
 interface IGalleryComponent {

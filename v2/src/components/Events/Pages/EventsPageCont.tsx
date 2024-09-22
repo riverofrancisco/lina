@@ -1,11 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-
-import type { EventCardI } from "../Cards/EventCard.tsx";
 import { EventCard } from "../Cards/EventCard.tsx";
 import { Timer } from "../Timer.jsx";
 import "./EventsPageCont.css";
-import { getEvents } from "../../../services/queries.ts";
 
 const events = [
   {

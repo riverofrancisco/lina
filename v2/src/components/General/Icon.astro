@@ -3,9 +3,11 @@ export interface Props {
   icon: string;
 }
 
+
 const { icon } = Astro.props as Props;
-const { default: innerHTML } = await import( /* @vite-ignore */ `/media/icons/${icon}.svg?raw`);
+const svgPath = `/media/icons/${icon}.svg`;
+//const { default: innerHTML } = await import( /* @vite-ignore */ `../../utils/icons/${icon}.svg?raw`);
 export const prerender = true;
 ---
 
-<Fragment set:html={innerHTML} />
+<img src={svgPath} alt={icon}/>
