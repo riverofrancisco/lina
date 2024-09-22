@@ -5,9 +5,10 @@ interface LinaCard {
   title: string;
   link: string;
   logo: string;
+  color?: string
 }
 
-const { title, link, logo } = Astro.props;
+const { title, link, logo, color } = Astro.props;
 
 let targetType: string = "";
 if (link[0] != "/") {
@@ -22,7 +23,7 @@ export const prerender = true;
     <h2>
       {title}
     </h2>
-    <Icon icon=`${logo}` />
+    <Icon icon=`${logo}` color={color}/>
   </a>
 </div>
 

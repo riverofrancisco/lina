@@ -22,8 +22,11 @@ export const EventCard = ({
   const eventDate = new Date(date);
   const currentDate = new Date();
 
+  
+
   const [isFree, setIsFree] = useState(false);
   const [ticketsText, setTicketsText] = useState("ENTRADAS");
+  const [period, setPeriod] = useState(3)
 
   const formattedDate = eventDate.toLocaleDateString("es-ES", {
     weekday: "long",
@@ -55,25 +58,33 @@ export const EventCard = ({
       setIsFree(true);
       setTicketsText(tickets);
     }
-  });
+    if(isPastEvent){
+      setPeriod(0)
+    }else if (isToday){
+      setPeriod(1)
+    }else if (isThisWeek){
+      setPeriod(2)
+    }
+    
+  }, []);
 
   return (
     <div
       className={`relative bg-gradient-to-r ${
-        isPastEvent ? "from-gray-300 to-gray-500" : "from-gray-100 to-gray-300"
-      } ${isToday ? "border-2 border-green-300" : "border-transparent"} ${isThisWeek ? "border-2 border-orange-300" : "border-transparent"} shadow-lg rounded-lg overflow-hidden`}
+        period === 0 ? "from-gray-300 to-gray-500" : "from-gray-100 to-gray-300"
+      } ${period === 1 ? "border-2 border-green-300" : "border-transparent"} ${period === 2 ? "border-2 border-orange-300" : "border-transparent"} shadow-lg rounded-lg overflow-hidden`}
     >
-      {isPastEvent && (
+      {(period === 0) && (
         <div className="absolute top-0 left-0 right-0 bg-red-800 opacity-90 text-white text-center py-1 font-bold">
           Evento terminado
         </div>
       )}
-      {isThisWeek && (
+      {(period === 2) && (
         <div className="absolute top-0 left-0 right-0 bg-orange-400 opacity-90 text-white text-center py-1 font-bold">
           Esta Semana
         </div>
       )}
-      {isToday && (
+      {(period === 1) && (
         <div className="absolute top-0 left-0 right-0 bg-green-400 opacity-90 text-white text-center py-1 font-bold">
           Hoy
         </div>
@@ -146,7 +157,7 @@ export const EventCard = ({
             className="flex items-center justify-end mb-2"
           >
             <button
-              className={`flex items-center justify-between ${isFree ? 'text-black outlined border-2 border-black p-2 text-sm bg-white rounded' : 'text-gray-100 bg-gray-900 hover:shadow p-2 rounded transition-all filled hover:bg-white hover:text-gray-900'}`}
+              className={`flex items-center justify-between ${isFree ? "text-black outlined border-2 border-black p-2 text-sm bg-white rounded" : "text-gray-100 bg-gray-900 hover:shadow p-2 rounded transition-all filled hover:bg-white hover:text-gray-900"}`}
               disabled={isFree}
             >
               <svg

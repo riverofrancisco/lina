@@ -1,13 +1,18 @@
 ---
 export interface Props {
   icon: string;
+  color?: string;
 }
 
 
-const { icon } = Astro.props as Props;
+const { icon, color = 'currentColor' } = Astro.props as Props;
 const svgPath = `/media/icons/${icon}.svg`;
 //const { default: innerHTML } = await import( /* @vite-ignore */ `../../utils/icons/${icon}.svg?raw`);
 export const prerender = true;
 ---
 
-<img src={svgPath} alt={icon}/>
+<img src={svgPath} alt={icon} style={{ color }} class="icon" />
+
+
+<style>
+</style>
