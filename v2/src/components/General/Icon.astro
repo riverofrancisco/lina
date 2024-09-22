@@ -5,14 +5,11 @@ export interface Props {
 }
 
 
-const { icon, color = 'currentColor' } = Astro.props as Props;
-const svgPath = `/media/icons/${icon}.svg`;
-//const { default: innerHTML } = await import( /* @vite-ignore */ `../../utils/icons/${icon}.svg?raw`);
-export const prerender = true;
+const { icon  } = Astro.props as Props;
+//const svgPath = `/media/icons/${icon}.svg`;
+const { default: innerHTML } = await import(`../../../public/media/icons/${icon}.svg?raw`);
+export const prerender = false;
 ---
 
-<img src={svgPath} alt={icon} style={{ color }} class="icon" />
+<Fragment set:html={innerHTML} style={{ color: 'currentColor' }} />
 
-
-<style>
-</style>
