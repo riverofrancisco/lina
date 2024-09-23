@@ -20,13 +20,21 @@ export const GalleryComponent = ({
     <div className="gallery-container">
       {picsToShow.length > 0 ? (
         picsToShow.map((picture, index) => (
-          <img
+          <div
             key={index}
-            src={picture.url}
-            alt={`pic number ${index}`}
-            className="gallery-image"
-            loading="lazy"
-          />
+            className="gallery-back"
+            style={{
+              backgroundImage: `url(${picture.url})`, // Set the background image here
+            }}
+          >
+            <img
+              /* key={index} */
+              src={picture.url}
+              alt={`pic number ${index}`}
+              className="gallery-image"
+              loading="lazy"
+            />
+          </div>
         ))
       ) : (
         <p>No pictures available</p>
