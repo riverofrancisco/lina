@@ -10,10 +10,9 @@ export const GalleryComponent = ({
   inHome,
   picturesData,
 }: IGalleryComponent) => {
-  
-  let picsToShow = picturesData
-  if(inHome){
-    picsToShow = picsToShow.slice(0,4)
+  let picsToShow = picturesData;
+  if (inHome) {
+    picsToShow = picsToShow.slice(0, 5);
   }
 
   return (
