@@ -3,8 +3,8 @@ import { ContactInfo } from "../../utils/interfaces/interfaces";
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [currentPath, setCurrentPath] = useState('/home')
-  
+  const [currentPath, setCurrentPath] = useState("/home");
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -15,12 +15,12 @@ export const Navbar = () => {
       : "md:p-2 text-l hover:opacity-100 opacity-70 hover:border-b-black hover:border-b-2 transition-all ease-in-out duration-100"; // Estilo normal
   };
 
-   useEffect(() => {
-     setCurrentPath(window.location.pathname);
-   }, []);
+  useEffect(() => {
+    setCurrentPath(window.location.pathname);
+  }, []);
 
   return (
-    <nav className="shadow">
+    <nav className="shadow z-20">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-4 lg:py-6 md:flex md:items-center md:justify-between">
         <div className="flex justify-between items-center">
           <span className="text-2xl font-[Roboto]">
@@ -75,7 +75,7 @@ export const Navbar = () => {
                 GALERIA
               </a>
             </li>
-           {/*  <li className="w-full text-center py-2 hover:bg-orange-100 hover:text-black">
+            {/*  <li className="w-full text-center py-2 hover:bg-orange-100 hover:text-black">
               <a href="/contact" className={getNavLinkClass("/contact")}>
                 CONTACTO
               </a>
@@ -101,7 +101,7 @@ export const Navbar = () => {
             </a>
           </li>
 
-        {/*   <li>
+          {/*   <li>
             <a href="/contact" className={getNavLinkClass("/contact")}>
               CONTACTO
             </a>
