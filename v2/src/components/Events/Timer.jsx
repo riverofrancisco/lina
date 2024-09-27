@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { calculateTimeLeft } from "../../utils/middlewares/calculateTime";
+import "./Timer.css";
 
 export const Timer = ({ nextDate }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(nextDate));
@@ -15,7 +16,7 @@ export const Timer = ({ nextDate }) => {
 
   Object.keys(timeLeft).forEach((interval) => {
     if (!timeLeft[interval]) {
-      return;
+      return timerComponents.push(<div className="loader"></div>);
     }
 
     timerComponents.push(
