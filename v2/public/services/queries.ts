@@ -1,16 +1,27 @@
+import type { EventI } from "../../src/utils/interfaces/interfaces";
 import supabase from "./database";
 
-export const getEvents = async () => {
+/* export const getEvents = async (): Promise<EventI[]> => {
   console.log("getting events...");
-  let { data: events, error } = await supabase.from("events").select("*");
+  let { data: events, error } = await supabase
+    .from("events")
+    .select(
+      "title,date,picture,country,locationLink,locationName,tickets,deleted",
+    );
   if (error) {
     console.error("Error fetching pictures:", error);
-    return null;
+    let emptyData: EventI[] = [];
+    return emptyData;
   }
-  events.sort((a:any, b:any)=> new Date(a.date).getTime() - new Date(b.date).getTime())
-  //console.log(events)
-  return events;
-};
+  let data: EventI[] = [];
+  data = events.filter((event: EventI) => event.deleted === 0);
+  data.sort(
+    (a: EventI, b: EventI) =>
+      new Date(a.date).getTime() - new Date(b.date).getTime(),
+  );
+  console.log(data);
+  return data;
+}; */
 
 export const getGalleryPictures = async () => {
   console.log("getting pictures...");
@@ -19,7 +30,7 @@ export const getGalleryPictures = async () => {
     console.error("Error fetching pictures:", error);
     return null;
   }
-  
+
   pictures.sort((a: any, b: any) => a.id - b.id);
   return pictures;
 };

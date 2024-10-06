@@ -2,71 +2,16 @@ import React, { useState, useEffect, useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { EventCard } from "../Cards/EventCard.tsx";
 import { Timer } from "../Timer.jsx";
-import "./EventsPageCont.css";
-
-const events = [
-  {
-    title: "Lina en The Monkeys",
-    date: "2024-08-16T22:00:00-03:00",
-    picture: "/media/pictures/Toma1.jpg",
-    locationLink: "https://maps.app.goo.gl/Ggf23CQXggGcVF5g6",
-    locationName: "The Monkeys, CABA",
-    country: "AR",
-    tickets: "/404",
-  },
-  {
-    title: "Lina en Moscú",
-    date: "2024-08-25T20:00:00-03:00",
-    picture: "/media/pictures/Toma1.jpg",
-    locationLink: "https://maps.app.goo.gl/gFpda1e5SNspsgFx9",
-    locationName: "Moscú Espacio Cultural, CABA",
-    country: "AR",
-    tickets: "/404",
-  },
-  {
-    title: "Festival UNTREF",
-    date: "2024-09-21T20:45:00-03:00",
-    picture: "/media/pictures/Toma1.jpg",
-    locationLink: "https://maps.app.goo.gl/D1cnW5fRD7s6PatG7",
-    locationName: "UNTREF, Buenos Aires",
-    country: "AR",
-    tickets: "/404",
-  },
-  {
-    title: "Atelier de Arte",
-    date: "2024-11-29T21:00:00-03:00",
-    picture: "/media/pictures/Toma1.jpg",
-    locationLink: "https://maps.app.goo.gl/1QQtqch5PXttAe8WA",
-    locationName: "El Atelier, CABA",
-    country: "AR",
-    tickets: "",
-  },
-  {
-    title: "Que nos Queda",
-    date: "2024-09-28T22:00:00-03:00",
-    picture: "/media/pictures/qnq.jpg",
-    locationLink: "https://maps.app.goo.gl/Nrsws1q4F2sUZe769",
-    locationName: "Deckers Beer, Sarandí, Buenos Aires",
-    country: "AR",
-    tickets: "",
-  },
-  {
-    title: "Lina en Conjura",
-    date: "2024-09-29T22:00:00-03:00",
-    picture: "/media/pictures/Toma1.jpg",
-    locationLink: "https://maps.app.goo.gl/cuqjopyemU3VcKXEA",
-    locationName: "Club Conjura, CABA",
-    country: "AR",
-    tickets: "https://www.passline.com/eventos/voidpalooza-en-club-conjura",
-  },
-];
+import type { EventI } from "../../../utils/interfaces/interfaces.ts";
+import "./EventsCont.css";
+import { TimerLoader } from "../TimerLoader.jsx";
 
 interface IEventsPage {
   inHome: boolean;
-  eventsData: any[];
+  eventsData: EventI[];
 }
 
-export const EventsPageContent = ({ inHome, eventsData }: IEventsPage) => {
+export const EventsContainer = ({ inHome, eventsData }: IEventsPage) => {
   const [emblaRef, emblaApi] = useEmblaCarousel();
 
   const scrollPrev = useCallback(() => {
@@ -77,35 +22,28 @@ export const EventsPageContent = ({ inHome, eventsData }: IEventsPage) => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
 
-  //logica para el evento más próximo
   const [targetDate, setTargetDate] = useState<string | null>(null);
   const [nextEventIndex, setNextEventIndex] = useState<number | null>(0);
   const currentDate = new Date();
 
-  let reverseEvents = [];
-
-
-
   if (!inHome) {
-    reverseEvents = eventsData.sort((a, b) => {
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    });
-
     useEffect(() => {
-       const nextEventIndex = eventsData.findIndex(
-         (event) => new Date(event.date) < currentDate,
-       );
-       if (nextEventIndex !== -1) {
-         setTargetDate(eventsData[nextEventIndex -1].date);
-         setNextEventIndex(nextEventIndex -1);
-       }
-    }, [])
+      let sorted = eventsData.sort((a, b) => {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      });
+      const nextEventIndex = sorted.findIndex(
+        (event) => new Date(event.date) < currentDate,
+      );
+      if (nextEventIndex !== -1) {
+        setTargetDate(eventsData[nextEventIndex - 1].date);
+        setNextEventIndex(nextEventIndex - 1);
+      }
+    }, [targetDate]);
   } else {
     useEffect(() => {
       const nextEventIndex = eventsData.findIndex(
         (event) => new Date(event.date) > currentDate,
       );
-
       if (nextEventIndex !== -1) {
         setTargetDate(eventsData[nextEventIndex].date);
         setNextEventIndex(nextEventIndex);
@@ -114,7 +52,7 @@ export const EventsPageContent = ({ inHome, eventsData }: IEventsPage) => {
       if (emblaApi && nextEventIndex !== null) {
         emblaApi.scrollTo(nextEventIndex);
       }
-    }, [currentDate, emblaApi, eventsData]);
+    }, [emblaApi, targetDate]);
   }
 
   return (
@@ -179,9 +117,9 @@ export const EventsPageContent = ({ inHome, eventsData }: IEventsPage) => {
         </div>
       ) : (
         <div className="mx-4 md:mx-32 grid grid-cols-1 gap-4 p-5 sm:grid-cols-2 md:grid-cols-3">
-          {reverseEvents.map((evt) => (
+          {eventsData.map((evt) => (
             <EventCard
-              key={`${evt.date}`}
+              key={`${evt.date}2`}
               title={evt.title}
               date={evt.date}
               picture={evt.picture}
