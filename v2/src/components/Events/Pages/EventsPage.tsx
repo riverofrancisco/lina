@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { EventsContainer } from "../Containers/EventsCont";
-import { TimerLoader } from "../TimerLoader";
-import { EventCardSkeleton } from "../Cards/EventCardSkeleton";
 import { EventsContainerLoader } from "../Containers/EventsContLoader";
 
 interface EventsPageI {

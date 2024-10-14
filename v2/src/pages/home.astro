@@ -3,19 +3,17 @@ import ButtonHome from "../components/General/ButtonHome.astro";
 import Pagination from "../components/General/pagination.astro";
 import Layout from "../layouts/Layout.astro";
 import { HomeCarousel } from "../components/Gallery/Carousel/Carousel";
-import { getGalleryPictures } from "../../public/services/queries";
-import { GalleryComponent } from "../components/Gallery/GalleryPictures";
 import EventsPage from "../components/Events/Pages/EventsPage";
-//const picturesData = await getGalleryPictures();
-export const prerender = false;
+import GalleryPage from "../components/Gallery/Pages/GalleryPage";
 
+export const prerender = false;
 ---
 
 <Layout title="Lina Rivero" >
 
 <HomeCarousel client:load/>
 <EventsPage inHome={true} client:load/>
-<!-- <GalleryComponent inHome={true} picturesData={picturesData} client:load/> -->
+<GalleryPage inHome={true} client:load/>
 <Pagination prev="/gallery" prevTitle="Galeria" next="/events" nextTitle="Fechas" />
 </Layout>
 

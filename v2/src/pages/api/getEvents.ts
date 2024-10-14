@@ -5,9 +5,11 @@ import type { APIRoute } from "astro";
 
 let data: EventI[] = [];
 
+const PASS = import.meta.env.VITE_API_PASS
+
 export const GET: APIRoute = async () => {
-  console.log("getting events...");
   try {
+
     let { data: events, error } = await supabase
       .from("events")
       .select("title,date,picture,country,locationLink,locationName,tickets")
