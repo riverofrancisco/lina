@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { EmailSender } from "../../../utils/middlewares/emails/sendEmail";
-import { EmptyContactForm } from "../../../utils/interfaces/interfaces";
 import ButtonHome from "../../General/ButtonHome.astro";
 
 export const ContactForm = () => {
   const [other, setOther] = useState("");
 
-  const [currentData, setCurrentData] = useState(EmptyContactForm);
+  const [currentData, setCurrentData] = useState();
 
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  /* const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     if (name.includes(".")) {
       const [parentProperty, childProperty] = name.split(".");
@@ -41,15 +39,15 @@ export const ContactForm = () => {
     const res = await fetch("api/send-email", { method: "POST" });
 
     console.log(res);
-  };
+  }; */
 
   return (
     <div className="max-w-xl mx-auto bg-orange-50 p-6 shadow-md rounded-md">
       <h2 className="text-2xl font-bold mb-4 text-center">Lina en tu evento</h2>
-     {/*  <button className="p-1 bg-gray-400" onClick={handleSubmit}>
+      {/*  <button className="p-1 bg-gray-400" onClick={handleSubmit}>
         PRUEBA ENVIO
       </button> */}
-      <form className="space-y-4" onSubmit={handleSubmit}>
+      {/*  <form className="space-y-4" onSubmit={handleSubmit}>
         <div className="flex flex-col sm:flex-row sm:space-x-4">
           <div className="flex-1">
             <label
@@ -213,7 +211,7 @@ export const ContactForm = () => {
             Enviar
           </button>
         </div>
-      </form>
+      </form> */}
     </div>
   );
 };

@@ -5,6 +5,7 @@
   padding: 20px;
   margin: 0 2%;
   max-width: 96%;
+  z-index: 0;
 }
 
 .gallery-image {
@@ -14,9 +15,10 @@
   border-radius: 8px;
   z-index: 1;
 }
+
 .gallery-back {
   position: relative;
-  border-radius: 8px; /* Necesario para que el ::after funcione correctamente */
+  border-radius: 8px;
 }
 
 .gallery-back::after {
@@ -28,7 +30,7 @@
   background: inherit;
   background-size: cover;
   background-position: center;
-  filter: blur(100px) saturate(400%);
+  filter: blur(50px) saturate(300%);
   z-index: -1;
 }
 

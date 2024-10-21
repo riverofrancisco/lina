@@ -18,6 +18,27 @@ export const ContactInfo = {
   logoDark: logodark.src,
 };
 
+export interface EventI {
+  id?: number;
+  created_at?: string;
+  deleted?: number;
+  title: string;
+  date: string;
+  picture: string;
+  country: string;
+  locationLink: string;
+  locationName: string;
+  tickets: string;
+}
+
+export interface PictureI {
+  id?: number;
+  created_at?: string;
+  url: string;
+  deleted: number;
+  index: number;
+}
+
 export interface ClientI {
   name: string;
   lastName: string;
@@ -34,23 +55,6 @@ export const EmptyClient: ClientI = {
   other: "",
 };
 
-export interface EventI {
-  guests: number | null;
-  date: string;
-  country: string;
-  city: string;
-  locationLink: string;
-  type: string;
-}
-
-export const EmptyEvent: EventI = {
-  guests: null,
-  date: "",
-  country: "",
-  city: "",
-  locationLink: "",
-  type: "",
-};
 
 export interface ContactFormI {
   event: EventI;
@@ -59,11 +63,6 @@ export interface ContactFormI {
   coments: string;
 }
 
-export const EmptyContactForm: ContactFormI = {
-  event: EmptyEvent,
-  client: EmptyClient,
-  coments: "",
-};
 
 export interface Picture {
   description: string;

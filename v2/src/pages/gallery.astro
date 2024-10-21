@@ -1,18 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Pagination from "../components/General/pagination.astro";
-import { getGalleryPictures } from "../../public/services/queries";
-import { GalleryComponent } from '../components/Gallery/GalleryPictures'
-import Loader from "../components/General/Loader.astro";
+import GalleryPage from "../components/Gallery/Pages/GalleryPage";
 
-const picturesData = await getGalleryPictures()
 export const prerender = false;
-
 ---
 
 <Layout title="Galeria">
-   {!picturesData ? <Loader/> :
-   <GalleryComponent inHome={false} picturesData={picturesData}/>
-   }
+   <GalleryPage inHome={false} client:load/>
    <Pagination prev="/events" prevTitle="Fechas" next="/home" nextTitle="Inicio"/>
 </Layout>
