@@ -29,7 +29,7 @@ export const EventsContainerLoader = ({ inHome }: IEventsPage) => {
             <div className="embla__container">
               {eventsData &&
                 eventsData.map((evt) => (
-                  <div key={`${evt}`} className="embla__slide">
+                  <div key={`SkeletonEventCard(${evt})`} className="embla__slide">
                     <EventCardSkeleton />
                   </div>
                 ))}
