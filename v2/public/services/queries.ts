@@ -1,7 +1,7 @@
 import type { EventI } from "../../src/utils/interfaces/interfaces";
 import supabase from "./database";
 
-/* export const getEvents = async (): Promise<EventI[]> => {
+export const getEvents = async (): Promise<EventI[]> => {
   console.log("getting events...");
   let { data: events, error } = await supabase
     .from("events")
@@ -21,7 +21,7 @@ import supabase from "./database";
   );
   console.log(data);
   return data;
-}; */
+};
 
 export const getGalleryPictures = async () => {
   console.log("getting pictures...");
