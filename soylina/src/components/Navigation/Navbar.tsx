@@ -7,7 +7,7 @@ export default function Navbar (){
         <h1>SOY LINA</h1>
         <ul>
           <li>
-            <Link href={"/app"}>Inicio</Link>
+            <Link href={"/home"}>Inicio</Link>
           </li>
           <li>
             <Link href={"/home/about"}>SoyLina</Link>
