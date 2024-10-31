@@ -8,3 +8,12 @@ nav {
 ul {
   display: flex;
 }
+
+li {
+  padding: 4px;
+}
+
+h1 {
+  padding: 4px;
+  font-weight: 800;
+}
