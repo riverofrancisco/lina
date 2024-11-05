@@ -1,8 +1,8 @@
 @supabaseKey = {{$NEXT_PUBLIC_SUPABASE_ANON_KEY}}
-@token = {{$SUPABASE_TOKEN_ADMIN}}
+@token = {{$NEXT_SUPABASE_TOKEN_ADMIN}}
 @url = {{$NEXT_PUBLIC_SUPABASE_URL}}
-@adminEmail = {{$SUPABASE_ADMIN_MAIL}}
-@adminPass = {{$SUPABASE_ADMIN_PASS}}
+@adminEmail = {{$NEXT_SUPABASE_ADMIN_MAIL}}
+@adminPass = {{$NEXT_SUPABASE_ADMIN_PASS}}
 
 ###SingUp
 POST http://localhost:3000/api/auth/register HTTP/1.1
