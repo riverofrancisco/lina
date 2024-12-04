@@ -1,0 +1,46 @@
+@supabaseKey = {{$NEXT_PUBLIC_SUPABASE_ANON_KEY}}
+@token = {{$NEXT_SUPABASE_TOKEN_ADMIN}}
+@url = {{$NEXT_PUBLIC_SUPABASE_URL}}
+@adminEmail = {{$NEXT_SUPABASE_ADMIN_MAIL}}
+@adminPass = {{$NEXT_SUPABASE_ADMIN_PASS}}
+
+###SingUp
+POST http://localhost:3000/api/auth/register HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{supabaseKey}}
+
+{
+      "email": "prueba@gmail.com",
+      "password": "123456"
+}
+
+###LogIn
+POST http://localhost:3000/api/auth/login HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{supabaseKey}}
+
+{
+      "email": "{{adminEmail}}",
+      "password": "{{adminPass}}"
+}
+
+###Get all events from newest to older
+GET http://localhost:3000/api/events HTTP/1.1
+
+###Get all pictures from newest to older
+GET http://localhost:3000/api/pictures HTTP/1.1
+
+###Get all songs A-Z
+GET http://localhost:3000/api/songs HTTP/1.1
+
+
+###
+POST http://localhost:3000/api/songs HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+      "title": "Tu Novia",
+      "author": "Lina Rivero",
+      "duration": "00:02:45"
+}
