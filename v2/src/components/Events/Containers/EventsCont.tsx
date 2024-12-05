@@ -11,7 +11,7 @@ interface IEventsPage {
   eventsData: EventI[];
 }
 
-export const EventsContainer = ({ inHome, eventsData }: IEventsPage) => {
+export const EventsContainer = ({ inHome, eventsData = [] }: IEventsPage) => {
   const [emblaRef, emblaApi] = useEmblaCarousel();
 
   const scrollPrev = useCallback(() => {
@@ -25,31 +25,43 @@ export const EventsContainer = ({ inHome, eventsData }: IEventsPage) => {
   const [targetDate, setTargetDate] = useState<string | null>(null);
   const [nextEventIndex, setNextEventIndex] = useState<number | null>(0);
   const currentDate = new Date();
+  const [sortedEvents, setSortedEvents] = useState<EventI[]>([])
 
-  if (!inHome) {
+  if (!inHome && (eventsData.length > 0)) {
     useEffect(() => {
-      let sorted = eventsData.sort((a, b) => {
-        return new Date(b.date).getTime() - new Date(a.date).getTime();
-      });
+      let sorted = eventsData
+        .filter((event) => event.date)
+        .sort((a, b) => {
+          return new Date(b.date).getTime() - new Date(a.date).getTime();
+        });
+
+      setSortedEvents(sorted)
+
       const nextEventIndex = sorted.findIndex(
         (event) => new Date(event.date) < currentDate,
       );
-      if (nextEventIndex !== -1) {
+  
+      if ((nextEventIndex === -1) || (nextEventIndex === 0)) {
+        setTargetDate("No-events-ahead");
+      } else {
         setTargetDate(eventsData[nextEventIndex - 1].date);
         setNextEventIndex(nextEventIndex - 1);
       }
     }, [targetDate]);
-  } else {
+
+  } else if (eventsData.length > 0) {
     useEffect(() => {
       const nextEventIndex = eventsData.findIndex(
         (event) => new Date(event.date) > currentDate,
       );
-      if (nextEventIndex !== -1) {
+      if (nextEventIndex === -1) {
+        setTargetDate("No-events-ahead");
+      } else {
         setTargetDate(eventsData[nextEventIndex].date);
         setNextEventIndex(nextEventIndex);
       }
 
-      if (emblaApi && nextEventIndex !== null) {
+      if (emblaApi && nextEventIndex !== -1) {
         emblaApi.scrollTo(nextEventIndex);
       }
     }, [emblaApi, targetDate]);
@@ -57,15 +69,21 @@ export const EventsContainer = ({ inHome, eventsData }: IEventsPage) => {
 
   return (
     <div>
-      <Timer nextDate={targetDate} />
+      {targetDate === "No-events-ahead" ? (
+        <TimerLoader />
+      ) : (
+        <Timer nextDate={targetDate} />
+      )}
+
       {inHome ? (
         <div className="embla">
           <div className="embla__viewport" ref={emblaRef}>
             <div className="embla__container">
               {eventsData &&
-                eventsData.map((evt) => (
-                  <div key={`${evt.date}`} className="embla__slide">
+                eventsData.map((evt, index) => (
+                  <div key={`${index}inHome`} className="embla__slide">
                     <EventCard
+                      key={`${index}EventCard-inHomeCard`}
                       title={evt.title}
                       date={evt.date}
                       picture={evt.picture}
@@ -117,9 +135,9 @@ export const EventsContainer = ({ inHome, eventsData }: IEventsPage) => {
         </div>
       ) : (
         <div className="mx-4 md:mx-32 grid grid-cols-1 gap-4 p-5 sm:grid-cols-2 md:grid-cols-3">
-          {eventsData.map((evt) => (
+          {sortedEvents.map((evt, index) => (
             <EventCard
-              key={`${evt.date}2`}
+              key={`${index}EventCard-NotInHome`}
               title={evt.title}
               date={evt.date}
               picture={evt.picture}

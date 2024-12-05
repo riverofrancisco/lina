@@ -28,8 +28,11 @@ export const EventsContainerLoader = ({ inHome }: IEventsPage) => {
           <div className="embla__viewport" ref={emblaRef}>
             <div className="embla__container">
               {eventsData &&
-                eventsData.map((evt) => (
-                  <div key={`SkeletonEventCard(${evt})`} className="embla__slide">
+                eventsData.map((evt, index) => (
+                  <div
+                    key={`${index}-EventCardSkeleton-InHome`}
+                    className="embla__slide"
+                  >
                     <EventCardSkeleton />
                   </div>
                 ))}
@@ -74,8 +77,8 @@ export const EventsContainerLoader = ({ inHome }: IEventsPage) => {
         </div>
       ) : (
         <div className="mx-4 md:mx-32 grid grid-cols-1 gap-4 p-5 sm:grid-cols-2 md:grid-cols-3">
-          {eventsData.map((evt) => (
-            <EventCardSkeleton />
+          {eventsData.map((evt, index) => (
+            <EventCardSkeleton key={`${index}-EventCardSkeleton-NotInHome`} />
           ))}
         </div>
       )}
