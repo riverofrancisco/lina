@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { calculateTimeLeft } from "../../utils/middlewares/calculateTime";
-import { TimerLoader } from "./TimerLoader";
 
 export const Timer = ({ nextDate }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(nextDate));
@@ -27,11 +26,6 @@ export const Timer = ({ nextDate }) => {
       </span>,
     );
   });
-
-  console.log(timeLeft)
-  if((timeLeft.días + timeLeft.horas + timeLeft.minutos + timeLeft.segundos) == 0){
-    return <TimerLoader />
-  }
 
   return (
     <div className="flex flex-col items-center w-full p-10 bg-gradient-to-r from-gray-700 to-gray-900 shadow-lg">
