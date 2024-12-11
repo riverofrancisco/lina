@@ -3,7 +3,6 @@
   margin: auto;
   margin-top: 30px;
   margin-bottom: 30px;
-  
 }
 .embla__container {
   display: flex;
@@ -12,8 +11,13 @@
 .embla__slide {
   flex: 0 0 90%;
   min-width: 0;
+  cursor: grab;
   margin-inline-end: 5px;
   margin-inline-start: 5px;
+}
+
+.embla__slide:active {
+  cursor: grabbing;
 }
 
 @media (min-width: 500px) {
@@ -21,7 +25,6 @@
     flex: 0 0 45%;
     margin-inline-start: 10px;
     margin-inline-end: 20px;
-    
   }
 }
 
