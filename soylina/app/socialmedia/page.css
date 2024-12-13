@@ -36,6 +36,6 @@ main {
   min-height: 100vh;
   color: #ffd0bf;
   font-size: 20px;
-  background: url(../../utils/pictures/Toma1.webp) no-repeat center center fixed;
+  background: url(../../public/pictures/Toma1.webp) no-repeat center center fixed;
   background-size: cover;
 }

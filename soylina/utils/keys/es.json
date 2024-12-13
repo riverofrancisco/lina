@@ -1,9 +1,10 @@
 {
   "Home": {
-    "media": "Lina en Redes Sociales",
-    "spotify": "Escucha mis canciones",
-    "contact": "Contratar Show",
-    "home": "Ver más"
+    "Media": "Lina en Redes Sociales",
+    "Spotify": "Escucha mis canciones",
+    "Contact": "Contratar Show",
+    "Home": "Ver más",
+    "Back": "Volver"
   },
   "About": {
     "Title": "Soy Lina, hago música",

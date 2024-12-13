@@ -4,7 +4,8 @@ import SignUpUserSteps from "@/components/tutorial/sign-up-user-steps";
 import VideoBackground from "@/components/ui/VideoBackground/videoback.component";
 import LinaCard from "@/components/ui/Cards/LinaCard";
 import { hasEnvVars } from "@/utils/supabase/check-env-vars";
-import { ContactInfo } from '@/utils/keys/es.json'
+import { IconMailFilled, IconMicrophone2, IconShare, IconSquareRoundedPlusFilled } from "@tabler/icons-react";
+import { ContactInfo, Home } from '@/utils/keys/es.json'
 import './page.css'
 
 export default async function Index() {
@@ -21,20 +22,25 @@ export default async function Index() {
           <ul role="list" className="link-card-grid">
             <LinaCard
               link="/socialmedia"
-              title="Lina en Redes sociales"
-              logo="share"
+              title={Home.Media}
+              logo={<IconShare stroke={1.25} size={40} />}
             />
             <LinaCard
               link={ContactInfo.spotifyLink}
-              title="Escucha mis canciones"
-              logo="sing"
+              title={Home.Spotify}
+              logo={<IconMicrophone2 stroke={1.25} size={40} />}
             />
             <LinaCard
               link={ContactInfo.mailLink}
-              title="Contratar Show"
-              logo="mail"
+              title={Home.Contact}
+              logo={<IconMailFilled stroke={1.25} size={40} />}
             />
-            <LinaCard link="/home" title="Ver Más" logo="add" color="#ffd0bf" />
+            <LinaCard
+              link="/home"
+              title={Home.Home}
+              logo={<IconSquareRoundedPlusFilled stroke={1.25} size={40} />}
+              color="#ffd0bf"
+            />
           </ul>
         </div>
       </main>
