@@ -34,7 +34,7 @@ export const EventsContainer = ({ inHome, eventsData = [] }: IEventsPage) => {
         .sort((a, b) => {
           return new Date(a.date).getTime() - new Date(b.date).getTime();
         });
-      console.log(AZ[0]);
+      //console.log(AZ[0]);
       setSortedEvents(AZ);
     } else {
       const ZA = sorted
@@ -42,7 +42,7 @@ export const EventsContainer = ({ inHome, eventsData = [] }: IEventsPage) => {
         .sort((a, b) => {
           return new Date(b.date).getTime() - new Date(a.date).getTime();
         });
-      console.log(ZA[0]);
+      //console.log(ZA[0]);
       setSortedEvents(ZA);
     }
   };
@@ -70,7 +70,6 @@ export const EventsContainer = ({ inHome, eventsData = [] }: IEventsPage) => {
         );
         if (nextIndex === -1) {
           setTargetDate("No-events-ahead");
-        
         
         } else {
           setTargetDate(eventsData[nextIndex].date);
