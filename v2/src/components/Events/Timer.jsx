@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { calculateTimeLeft } from "../../utils/middlewares/calculateTime";
 
 export const Timer = ({ nextDate }) => {
-  console.log(nextDate)
+  //console.log(nextDate)
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(nextDate));
-  console.log(timeLeft)
+  //console.log(timeLeft)
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft(nextDate));

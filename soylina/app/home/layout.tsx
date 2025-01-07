@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import Navbar from "@/components/ui/Navigation/Navbar";
 import { Lexend } from "next/font/google";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 
 const lexend = Lexend({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -21,11 +22,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${lexend.className} antialiased`}>
-        <Navbar key={"navbar"}/>
-        {children}
-      </body>
-    </html>
+    <main>
+      <Navbar key={"navbar"} />
+      {children}
+      <footer className="w-full flex items-center justify-center border-t mx-auto text-center text-xs gap-8 py-16">
+        <p>
+          Developed by{" "}
+          <a
+            href="https://frivero.com.ar"
+            target="_blank"
+            className="font-bold hover:underline"
+            rel="noreferrer"
+          >
+            FREDI
+          </a>
+        </p>
+        <ThemeSwitcher />
+      </footer>
+    </main>
   );
 }
