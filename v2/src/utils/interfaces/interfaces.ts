@@ -4,8 +4,8 @@ import logodark from "../../../public/media/pictures/Logodark.png";
 export const ContactInfo = {
   mail: "info@linarivero.com.ar",
   mailLink: "mailto:info@linarivero.com.ar",
-  whatsapp: "+549 11 58764044",
-  whatsappLink: "https://wa.me/5491158764044",
+  whatsapp: "+549 11 23986362",
+  whatsappLink: "https://wa.me/5491123986362",
   instagramLink: "https://www.instagram.com/_linarivero/",
   instagramMD: "https://ig.me/m/_linarivero",
   youtubeLink: "https://www.youtube.com/@_linarivero",
