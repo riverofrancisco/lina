@@ -1,4 +1,4 @@
-import DeployButton from "@/components/deploy-button";
+
 import { EnvVarWarning } from "@/components/env-var-warning";
 import HeaderAuth from "@/components/header-auth";
 import { ThemeSwitcher } from "@/components/theme-switcher";
@@ -17,6 +17,9 @@ export const metadata = {
   metadataBase: new URL(defaultUrl),
   title: "Lina Rivero",
   description: "Soy Lina, hago música.",
+  icons: {
+      icon: '/favicon.ico',
+    },
 };
 
 const lexend = Lexend({
