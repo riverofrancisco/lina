@@ -1,5 +1,6 @@
-import React from "react";
+import React from 'react';
+import GalleryPage from '@/components/gallery/GalleryPage';
 
-export default function SocialMediaPage() {
-  return <h1>gallery</h1>;
+export default function Gallery() {
+  return <GalleryPage inHome={false} />;
 }

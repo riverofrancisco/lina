@@ -1,6 +1,5 @@
-import type { ImageMetadata } from "astro";
-import React, { useEffect, useState } from "react";
-import "./ImageSlider.css";
+import React, { useEffect, useState } from 'react';
+import './ImageSlider.css';
 
 type ImageSliderProps = {
   imageUrls: string[];
@@ -34,18 +33,18 @@ export function ImageSlider({ imageUrls }: ImageSliderProps) {
   return (
     <div
       style={{
-        width: "100%",
-        height: "90vh",
-        aspectRatio: "10/6",
-        position: "relative",
+        width: '100%',
+        height: '90vh',
+        aspectRatio: '10/6',
+        position: 'relative',
       }}
     >
       <div
         style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          overflow: "hidden",
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          overflow: 'hidden',
         }}
       >
         {imageUrls.map((url) => (
