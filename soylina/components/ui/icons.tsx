@@ -8,6 +8,6 @@ const Icons = [
   },
 ];
 
-export function Icon(iconName: string) {
+export function Icon(iconName: any) {
   return <div>{Icons[iconName].Icon}</div>;
 }

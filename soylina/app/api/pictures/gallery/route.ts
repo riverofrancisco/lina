@@ -1,32 +1,28 @@
 import { NextResponse } from 'next/server';
 import { createClient } from '@/utils/supabase/server';
-import { EventI } from '@/utils/interfaces';
+import { PictureI, PicturesAPII } from '@/utils/interfaces';
 
-export interface EventsAPII {
-  dataType: string;
-  data: EventI[];
-}
-
-const responseData: EventsAPII = { dataType: 'Events', data: [] };
+const responseData: PicturesAPII = { dataType: 'Pictures', data: [] };
 
 export async function GET() {
   try {
     const supabase = await createClient();
-    const { data: events, error } = await supabase
-      .from('events')
-      .select('title,date,picture,country,locationLink,locationName,tickets')
-      .eq('deleted', 0);
+    const { data: pictures, error } = await supabase
+      .from('pictures')
+      .select('src,index')
+      .eq('deleted', 0)
+      .eq('on_gallery', 1);
 
     if (error) {
       console.error('Supabase response error');
       console.log(error);
     }
 
-    if (events) {
-      responseData.data = events.sort(
-        (a: EventI, b: EventI) =>
-          new Date(a.date).getTime() - new Date(b.date).getTime()
+    if (pictures) {
+      responseData.data = pictures.sort(
+        (a: PictureI, b: PictureI) => a.index - b.index
       );
+
       return new NextResponse(JSON.stringify(responseData), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },

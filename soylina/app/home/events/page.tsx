@@ -1,3 +1,7 @@
-export default function SocialMediaPage() {
-  return <h1>Events</h1>;
-}
+import EventsPage from "@/components/events/EventsPage"
+
+export default function Events(){
+  return(
+<EventsPage inHome={false}/>
+  )
+} 
