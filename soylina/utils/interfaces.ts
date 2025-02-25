@@ -11,8 +11,8 @@ export const ContactInfo = {
     'https://open.spotify.com/artist/3binED05LZgUfuz7ODLCMX?si=9yS8RHbTTEieMvOW7aygig',
   mediaUser: '_linarivero',
   profilePic: '',
-  //logoLight: logo.src,
-  //logoDark: logodark.src,
+  logo: 'https://aemzmlsfwgajxqiwclag.supabase.co/storage/v1/object/public/pictures/global/logo.png',
+  logoDark: 'https://aemzmlsfwgajxqiwclag.supabase.co/storage/v1/object/public/pictures/global/logo_darktheme.png',
 };
 
 export interface EventI {

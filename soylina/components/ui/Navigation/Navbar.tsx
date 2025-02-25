@@ -8,17 +8,25 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { List } from '@mui/material';
+import { List, ListItemButton } from '@mui/material';
+import { ThemeSwitcher } from '@/components/theme-switcher';
+
 
 export default function Navbar() {
   return (
-    <Box sx={{ flexGrow: 1, width: '100vw' }}>
+    <Box 
+      sx={{
+        flexGrow: 1,
+        width: '100vw',
+        boxShadow: 5,
+        position: 'fixed',
+        top: 0,
+        zIndex: 100
+      }}
+    >
       <AppBar
-        position="static"
         sx={{
           display: 'flex',
           justifyContent: { xs: 'space-between', md: 'space-around' },
@@ -33,26 +41,31 @@ export default function Navbar() {
         <List
           sx={{ display: { xs: 'none', md: 'flex', alignItems: 'center' } }}
         >
-          <li>
+          <ListItemButton>
             <Link href={'/home'}>
               <h2>Inicio</h2>
             </Link>
-          </li>
-          <li>
+          </ListItemButton>
+          <ListItemButton>
             <Link href={'/home/about'}>
               <h2>SoyLina</h2>
             </Link>
-          </li>
-          <li>
+          </ListItemButton>
+          <ListItemButton>
             <Link href={'/home/events'}>Fechas</Link>
-          </li>
-          <li>
+          </ListItemButton>
+          <ListItemButton>
             <Link href={'/home/gallery'}>Galeria</Link>
-          </li>
-          <li>
+          </ListItemButton>
+          <ListItemButton>
             <Link href={'/home/contact'}>Contacto</Link>
-          </li>
-          <li>{!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}</li>
+          </ListItemButton>
+          <ListItemButton>
+            <ThemeSwitcher />
+          </ListItemButton>
+          <ListItemButton>
+            {!hasEnvVars ? <EnvVarWarning /> : <HeaderAuth />}
+          </ListItemButton>
         </List>
         <Toolbar sx={{ display: { xs: 'inherit', md: 'none' } }}>
           <IconButton
