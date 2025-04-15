@@ -82,7 +82,7 @@ export const EventsContainer = ({ inHome, eventsData = [] }: IEventsPage) => {
           emblaApi.scrollTo(nextEventIndex);
         }
       });
-    }, [emblaApi, targetDate]);
+    }, [inHome, emblaApi, targetDate]);
   }
 
   return (
