@@ -1,19 +1,11 @@
 import type { Metadata } from 'next';
-import { Lexend } from 'next/font/google';
 import './globals.css';
-import { ThemeProvider as MUIThemeProvider, CssBaseline } from '@mui/material';
-import { theme, darkTheme } from '@/config/theme';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import { StyledRoot } from '@/config/styledroot';
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : 'http://localhost:3000';
-
-const lexend = Lexend({
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  style: ['normal'],
-  subsets: ['latin', 'latin-ext'],
-  variable: '--font-lexend',
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
@@ -32,11 +24,10 @@ export default function RootLayout({
   const isDarkMode = true;
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${lexend.className}`}>
-        <MUIThemeProvider theme={isDarkMode ? darkTheme : theme}>
-          <CssBaseline />
-          {children}
-        </MUIThemeProvider>
+      <body>
+        <AppRouterCacheProvider options={{ key: 'css', enableCssLayer: true }}>
+          <StyledRoot>{children}</StyledRoot>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

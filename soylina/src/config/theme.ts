@@ -1,5 +1,5 @@
-'use client';
 import { createTheme } from '@mui/material/styles';
+import { Lexend } from 'next/font/google';
 
 const myPalette = {
   cream: '#EAC5A8',
@@ -9,7 +9,15 @@ const myPalette = {
   black: '#232323',
 };
 
+const lexend = Lexend({
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  style: ['normal'],
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-lexend',
+});
+
 const theme = createTheme({
+  cssVariables: true,
   palette: {
     primary: {
       main: '#8C2F1B',
@@ -27,11 +35,12 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "'Lexend', 'Roboto', 'Helvetica', 'Arial', sans-serif",
+    fontFamily: 'var(--font-lexend), Arial, Helvetica, sans-serif',
   },
 });
 
 const darkTheme = createTheme({
+  cssVariables: true,
   palette: {
     mode: 'dark',
     primary: {
@@ -48,6 +57,9 @@ const darkTheme = createTheme({
       primary: '#EAC5A8',
       secondary: '#232323',
     },
+  },
+  typography: {
+    fontFamily: 'var(--font-lexend), Arial, Helvetica, sans-serif',
   },
 });
 
