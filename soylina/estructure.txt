@@ -1,0 +1,34 @@
+/src
+  /app
+    /api          # Rutas API (server-side)
+      /events
+        route.ts   # Rutas relacionadas con eventos
+      /auth
+        route.ts   # Rutas relacionadas con autenticación
+    /dashboard     # Página de dashboard
+      page.tsx     # Página principal del dashboard
+      layout.tsx   # Layout específico para el dashboard
+    /events        # Página de eventos
+      page.tsx     # Página principal de eventos
+      [id]         # Página dinámica para un evento específico
+        page.tsx
+    /auth          # Páginas relacionadas con autenticación
+      login
+        page.tsx   # Página de login
+      register
+        page.tsx   # Página de registro
+    layout.tsx     # Layout global
+    page.tsx       # Página principal (home)
+  /components      # Componentes reutilizables
+    /ui            # Componentes de UI (botones, inputs, etc.)
+      Button.tsx
+      Input.tsx
+    /events        # Componentes específicos de eventos
+      EventCard.tsx
+      EventList.tsx
+  /config          # Configuración global
+    theme.ts       # Tema de Material-UI
+    supabaseConfig.ts
+    firebaseConfig.ts
+  /styles          # Estilos globales
+    globals.css    # Estilos globales de Tailwind o CSS
