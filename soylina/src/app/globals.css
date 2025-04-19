@@ -1,0 +1,28 @@
+@layer base {
+  :root {
+    --background: #eac5a8; /* Cream */
+    --foreground: #232323; /* Black */
+    --primary: #8c2f1b; /* Red */
+    --secondary: #223a24; /* Green */
+    --text-primary: #232323;
+    --text-secondary: #eac5a8;
+    --font-lexend: 'Lexend', Arial, Helvetica, sans-serif;
+  }
+
+  body {
+    color: var(--text-primary);
+    background: var(--background);
+    font-family: var(--font-lexend); 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  [data-theme='dark'] {
+    --background: #232323; /* Black */
+    --foreground: #eac5a8; /* Cream */
+    --primary: #8c2f1b; /* Red */
+    --secondary: #223a24; /* Green */
+    --text-primary: #eac5a8;
+    --text-secondary: #232323;
+  }
+}

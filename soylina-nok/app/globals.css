@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #eac5a8;
+    --foreground: #232323;
+  }
+
+  [data-theme='dark'] {
+    --background: #232323;
+    --foreground: #eac5a8;
+  }
+
+  body:not(.MuiTypography-root):not(.MuiButton-root) {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
