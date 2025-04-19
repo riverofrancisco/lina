@@ -21,7 +21,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isDarkMode = true;
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
