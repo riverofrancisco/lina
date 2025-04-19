@@ -63,4 +63,4 @@ const darkTheme = createTheme({
   },
 });
 
-export { theme, darkTheme };
+export {myPalette, theme, darkTheme };
