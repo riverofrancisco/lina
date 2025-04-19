@@ -9,13 +9,12 @@ import {
 import { ContactInfo, Home } from '@/utils/keys/es.json';
 import LinaCard from '@/components/ui/Cards/LinaCard';
 import './page.css';
-import logolight from 'soylina\public\pictures\logolight.png';
+import { myPalette } from '@/config/theme';
 
 export default function Index() {
   return (
     <>
       <VideoBackground />
-
       <div className="capa"></div>
       <div className="welcome">
       <div className='welcome-title'>
@@ -42,7 +41,7 @@ export default function Index() {
             link="/home"
             title={Home.Home}
             logo={<IconSquareRoundedPlusFilled stroke={1.25} size={40} />}
-            color="#ffd0bf"
+            color={myPalette.cream}
           />
         </ul>
       </div>
