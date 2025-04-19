@@ -41,6 +41,22 @@ a {
   );
 }
 
+@media (max-width: 600px) {
+  .link-card h2{
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 300px) {
+  .link-card h2{
+    display: none;
+  }
+  .link-card {
+   justify-content: center;
+  }
+}
+
+
 @keyframes fadeIn {
   from {
     opacity: 0;
