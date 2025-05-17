@@ -7,7 +7,7 @@ export default function HomeLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const links = ['events', 'gallery', 'contact'];
+  const links = ['home','events', 'gallery', 'contact'];
   return (
     <>
       <Navbar links={links} />

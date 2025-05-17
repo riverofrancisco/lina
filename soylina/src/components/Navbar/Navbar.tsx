@@ -47,10 +47,14 @@ export default function NavBar(props: NavBarProps) {
 
           <Box>
             {props.links.map((menu: string) => {
+              let menuName = menu;
+              if (menuName === 'home') {
+                menuName = '';
+              }
               return (
-                <Button key={menu} color="inherit">
+                <Button key={menuName} color="inherit">
                   <Link
-                    href={`/home/${menu}`}
+                    href={`/home/${menuName}`}
                     style={{ textDecoration: 'none', color: '#000000' }}
                   >
                     {menu}
