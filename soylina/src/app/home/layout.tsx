@@ -1,16 +1,17 @@
+import Navbar from '@/components/Navbar/Navbar';
 import React from 'react';
+import './layout.css';
 
-export default function HomeLayout({ children }: { children: React.ReactNode }) {
+export default function HomeLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const links = ['events', 'gallery', 'contact'];
   return (
-    <div>
-      <nav className="navbar">
-        <ul>
-          <li><a href="/home">Home</a></li>
-          <li><a href="/home/about">About</a></li>
-          <li><a href="/home/contact">Contact</a></li>
-        </ul>
-      </nav>
+    <>
+      <Navbar links={links} />
       <main>{children}</main>
-    </div>
+    </>
   );
 }
