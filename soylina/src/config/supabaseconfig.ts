@@ -9,5 +9,5 @@ export const supabaseClient = createClient(
 // Servidor (clave secreta)
 export const supabaseServer = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SECRET_KEY!
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 );
