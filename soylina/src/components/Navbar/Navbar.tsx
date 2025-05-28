@@ -9,7 +9,7 @@ import {
   Button,
   IconButton,
 } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import MobileMenu from './MobileMenu';
 
 interface NavBarProps {
   links: string[];
@@ -20,16 +20,8 @@ export default function NavBar(props: NavBarProps) {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed" sx={{ color: '#000000' }}>
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          {/*    <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
-          <Box>
+     
+          <Box >
             <Link
               href="/"
               style={{
@@ -44,8 +36,10 @@ export default function NavBar(props: NavBarProps) {
               </Typography>
             </Link>
           </Box>
-
-          <Box>
+     <Box sx={{ display: { xs: 'flex', sm: 'none' }, alignItems: 'center' }}>
+            <MobileMenu links={props.links} />
+            </Box>
+          <Box sx={{ display: {xs: "none", sm:'flex'}, alignItems: 'center' }}>
             {props.links.map((menu: string) => {
               let menuName = menu;
               if (menuName === 'home') {
