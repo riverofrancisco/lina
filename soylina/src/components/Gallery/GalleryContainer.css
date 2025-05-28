@@ -10,7 +10,7 @@
 
 .gallery-image {
   width: 100%;
-  height: auto;
+  height: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 8px;
@@ -31,7 +31,7 @@
   background: inherit;
   background-size: cover;
   background-position: center;
-  filter: blur(25px) saturate(300%);
+  filter: blur(30px) saturate(250%);
   z-index: -1;
 }
 
@@ -45,5 +45,30 @@
 @media (min-width: 1200px) {
   .gallery-container {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+.skeleton-loader {
+  width: 100%;
+  height: 100%;
+  background-color: #c9a06d;
+  animation: pulse 1.5s infinite ease-in-out;
+  border-radius: 8px;
+  aspect-ratio: 3 / 4;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }

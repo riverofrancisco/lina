@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import './GalleryContainer.css';
 
 interface IGalleryComponent {
