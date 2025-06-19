@@ -1,10 +1,7 @@
+import EventsPage from "@/components/Events/EventsPage"
 
-
-export default function EventsPage() {
-  return (
-	<div>
-	  <h1>Welcome to the Events Page</h1>
-	  <p>This is a simple test page for the Events route.</p>
-	</div>
-  );
-}
+export default function Events(){
+  return(
+<EventsPage inHome={false}/>
+  )
+} 
