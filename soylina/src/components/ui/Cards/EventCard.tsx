@@ -1,9 +1,11 @@
 'use client';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './EventCard.css';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
+import Button from '@mui/material/Button';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';
+import Link from 'next/link';
 
 export interface EventCardI {
   title: string;
@@ -90,39 +92,44 @@ export const EventCard = ({
       <div className="event-card-date-row">
         <CalendarMonthOutlinedIcon />
         <div className="event-card-date-info">
-          <p className="event-card-date-text">{formattedDate}</p>
+          <p className="event-card-date-text">{formattedDate.toUpperCase()}</p>
           <p className="event-card-date-time">{formattedTime}hs</p>
         </div>
-        </div>
-        <div className="event-card-content">
-          <h2 className="event-card-title">{title}</h2>
-
-          <div className="event-card-location-row">
-            <a
-              href={locationLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="event-card-location-link"
-            >
-              <LocationOnIcon />
-              <p>{locationName}</p>
-            </a>
-            <a
-              href={!isFree ? tickets : '#'}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="event-card-tickets-link"
-            >
-              <button
-                className={`event-card-btn ${isFree ? 'outlined' : 'filled'}`}
-                disabled={isFree}
-              >
-                <ConfirmationNumberOutlinedIcon />
-                {ticketsText}
-              </button>
-            </a>
+      </div>
+      <div className="event-card-content">
+        <div className="event-card-title">{title}</div>
+        <div className="event-card-date-row-content">
+          <CalendarMonthOutlinedIcon />
+          <div className="event-card-date-info">
+            <p className="event-card-date-text">{formattedDate}</p>
+            <p className="event-card-date-time">{formattedTime}hs</p>
           </div>
-        
+        </div>
+        <div className="event-card-location-row">
+          <Link
+            href={locationLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="event-card-location-link"
+          >
+            <LocationOnIcon />
+            <p>{locationName}</p>
+          </Link>
+          <Link
+            href={!isFree ? tickets : '#'}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="event-card-tickets-link  "
+          >
+            <Button
+              className={`event-card-btn ${isFree ? 'outlined' : 'filled'}`}
+              disabled={isFree}
+            >
+              <ConfirmationNumberOutlinedIcon />
+              <p >{ticketsText}</p>
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );

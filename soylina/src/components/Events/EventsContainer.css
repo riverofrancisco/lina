@@ -48,7 +48,7 @@
 .control:hover {
   background: black;
   opacity: 0.8;
-color:#eac5a8;
+  color: #eac5a8;
   transform: scale(1.03);
 }
 
@@ -68,9 +68,11 @@ color:#eac5a8;
   margin-right: 1rem;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 480px) {
   .events-grid {
     grid-template-columns: repeat(2, 1fr);
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }
 
