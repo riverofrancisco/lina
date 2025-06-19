@@ -37,18 +37,18 @@
 }
 
 .control {
-  border: #262626 1px solid;
-  box-shadow: 1px #262626;
+  border: #232323 1px solid;
+  box-shadow: 1px #232323;
   border-radius: 50%;
   margin: 2px;
   padding: 4px;
-  color: #262626;
+  color: #232323;
 }
 
 .control:hover {
   background: black;
   opacity: 0.8;
-  color: whitesmoke;
+color:#eac5a8;
   transform: scale(1.03);
 }
 

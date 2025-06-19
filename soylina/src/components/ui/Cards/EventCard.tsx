@@ -77,50 +77,52 @@ export const EventCard = ({
       }${period === 2 ? ' week' : ''}`}
     >
       {period === 0 && (
-        <div className="event-card-label past">Evento terminado</div>
+        <div className="event-card-label past">EVENTO TERMINADO</div>
       )}
-      {period === 2 && <div className="event-card-label week">Esta Semana</div>}
-      {period === 1 && <div className="event-card-label today">Hoy</div>}
+      {period === 2 && <div className="event-card-label week">ESTA SEMANA</div>}
+      {period === 1 && <div className="event-card-label today">HOY</div>}
       <img
         src={picture}
         alt={title}
         loading="lazy"
         className="event-card-img"
       />
-      <div className="event-card-content">
-        <h2 className="event-card-title">{title}</h2>
-        <div className="event-card-date-row">
-          <CalendarMonthOutlinedIcon />
-          <div className="event-card-date-info">
-            <p className="event-card-date-text">{formattedDate}</p>
-            <p className="event-card-date-time">{formattedTime}hs</p>
-          </div>
+      <div className="event-card-date-row">
+        <CalendarMonthOutlinedIcon />
+        <div className="event-card-date-info">
+          <p className="event-card-date-text">{formattedDate}</p>
+          <p className="event-card-date-time">{formattedTime}hs</p>
         </div>
-        <div className="event-card-location-row">
-          <a
-            href={locationLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="event-card-location-link"
-          >
-          <LocationOnIcon />
-            <p>{locationName}</p>
-          </a>
-          <a
-            href={!isFree ? tickets : '#'}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="event-card-tickets-link"
-          >
-            <button
-              className={`event-card-btn ${isFree ? 'outlined' : 'filled'}`}
-              disabled={isFree}
+        </div>
+        <div className="event-card-content">
+          <h2 className="event-card-title">{title}</h2>
+
+          <div className="event-card-location-row">
+            <a
+              href={locationLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="event-card-location-link"
             >
-              <ConfirmationNumberOutlinedIcon />
-              {ticketsText}
-            </button>
-          </a>
-        </div>
+              <LocationOnIcon />
+              <p>{locationName}</p>
+            </a>
+            <a
+              href={!isFree ? tickets : '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="event-card-tickets-link"
+            >
+              <button
+                className={`event-card-btn ${isFree ? 'outlined' : 'filled'}`}
+                disabled={isFree}
+              >
+                <ConfirmationNumberOutlinedIcon />
+                {ticketsText}
+              </button>
+            </a>
+          </div>
+        
       </div>
     </div>
   );

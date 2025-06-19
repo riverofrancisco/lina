@@ -4,7 +4,7 @@ import "./EventCardSkeleton.css"; // Asegúrate de tener los estilos para la ani
 export const EventCardSkeleton = () => {
   return (
 <div className="event-skeleton-card">
-  <div className="event-skeleton-img"></div>
+ 
   <div className="event-skeleton-content">
     <div className="event-skeleton-title"></div>
     <div className="event-skeleton-date">

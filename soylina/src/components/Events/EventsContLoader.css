@@ -55,3 +55,26 @@
   justify-content: center;
   margin-top: 15px;
 }
+
+.events-grid-loader {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1.25rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .events-grid-loader {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .events-grid-loader {
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 8rem;
+    margin-right: 8rem;
+  }
+}

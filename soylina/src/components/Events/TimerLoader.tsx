@@ -16,7 +16,7 @@ export const TimerLoader = () => {
           <span className="bar"></span>
         </div>
       </div>
-      <h2 className="timer-loader-subtitle">Gracias por esperar</h2>
+      <div className="timer-loader-subtitle">Gracias por esperar</div>
     </div>
   );
 };
