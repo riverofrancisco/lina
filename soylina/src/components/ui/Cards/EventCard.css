@@ -1,0 +1,184 @@
+.event-card {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.event-card.past {
+  background: linear-gradient(90deg, gray 0%, #232323 100%);
+}
+
+.event-card.today {
+  border: 2px solid #6ee7b7;
+}
+
+.event-card.week {
+  border: 2px solid #fdba74;
+}
+
+.event-card-img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.3s;
+}
+
+.event-card-date-row {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba(35, 35, 35, 0.85);
+  color: #eac5a8;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 2;
+  font-size: 1rem;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+.event-card-date-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-card-date-text,
+.event-card-date-time {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.event-card-content {
+  position: absolute;
+  inset: 0;
+  background: rgba(35, 35, 35, 0.92);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+padding: 1rem;
+  text-align: center;
+  z-index: 3;
+}
+
+.event-card:hover .event-card-content,
+.event-card:focus-within .event-card-content {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.event-card:hover .event-card-img,
+.event-card:focus-within .event-card-img {
+  filter: blur(2px) brightness(0.2);
+}
+
+.event-card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #eac5a8;
+}
+
+.event-card-location-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.event-card-location-link {
+  display: flex;
+  align-items: center;
+  color: #eac5a8;
+  text-decoration: none;
+  font-weight: 500;
+  gap: 0.25rem;
+}
+
+.event-card-tickets-link {
+  text-decoration: none;
+}
+
+.event-card-btn {
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  background: #eac5a8;
+  color: #232323;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.event-card-btn.filled {
+  background: #eac5a8;
+  color: #232323;
+}
+
+.event-card-btn.filled:hover {
+  background: #fff;
+  color: #111827;
+  border: 2px solid #111827;
+}
+
+.event-card-btn.outlined {
+  background: transparent;
+  color: #eac5a8;
+  border: 2px solid #eac5a8;
+}
+
+.event-card-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-weight: bold;
+  padding: 1rem 0;
+  color: #232323;
+  opacity: 0.9;
+  z-index: 4;
+  font-size: 1rem;
+  border-radius: .5rem .5rem 0 0;
+  background: #991b1b;
+}
+
+.event-card-label.week {
+  background: #fb923c;
+}
+
+.event-card-label.today {
+  background: #22c55e;
+}
+
+.event-card.past .event-card-label {
+  background: #232323;
+  color: #991b1b;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem 0;
+  font-size: 1.25rem;
+  opacity: 0,5;
+}
