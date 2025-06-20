@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import './EventCard.css';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ConfirmationNumberOutlinedIcon from '@mui/icons-material/ConfirmationNumberOutlined';
 import Link from 'next/link';
@@ -113,7 +114,7 @@ export const EventCard = ({
             className="event-card-location-link"
           >
             <LocationOnIcon />
-            <p>{locationName}</p>
+            <p className="event-card-location-text">{locationName}</p>
           </Link>
           <Link
             href={!isFree ? tickets : '#'}
@@ -126,7 +127,7 @@ export const EventCard = ({
               disabled={isFree}
             >
               <ConfirmationNumberOutlinedIcon />
-              <p >{ticketsText}</p>
+              <Typography className='event-card-btn-text'>{ticketsText}</Typography>
             </Button>
           </Link>
         </div>

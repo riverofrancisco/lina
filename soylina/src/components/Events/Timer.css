@@ -41,7 +41,7 @@
 }
 
 .timer-animate {
-  font-size: 2.2rem;
+  font-size: 1rem;
   font-weight: bold;
   color: #eac5a8;
   border-radius: 0.75rem;
@@ -76,6 +76,9 @@
   .timer-number {
     font-size: 2rem;
   }
+   .timer-animate {
+    font-size: 2rem;
+  }
   .timer-label {
     font-size: 0.875rem;
   }
@@ -93,6 +96,9 @@
   .timer-number {
     font-size: 2.5rem;
   }
+  .timer-animate {
+    font-size: 2.5rem;
+  }
   .timer-countdown {
     gap: 1.5rem;
   }
@@ -107,6 +113,9 @@
 
 @media (min-width: 1024px) {
   .timer-number {
+    font-size: 3rem;
+  }
+  .timer-animate {
     font-size: 3rem;
   }
   .timer-countdown {
