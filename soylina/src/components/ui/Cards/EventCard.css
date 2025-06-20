@@ -1,18 +1,11 @@
 .event-card {
   position: relative;
-  max-width: 350px;
+  max-width: 500px;
   aspect-ratio: 4 / 3;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   transition: box-shadow 0.2s;
-}
-
-@media (max-width: 480px) {
-  .event-card {
-    max-width: 100%;
-    aspect-ratio: 5 / 4;
-  }
 }
 
 .event-card.past {
@@ -40,6 +33,7 @@
   position: absolute;
   bottom: 1rem;
   left: 1rem;
+  right: 1rem;
   background: rgba(35, 35, 35, 0.85);
   color: #eac5a8;
   padding: 0.5rem 1rem;
@@ -61,27 +55,15 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 400;
-}
-
-@media (max-width: 480px) {
-  .event-card-date-row-content {
-    display: none;
-  }
-.event-card-location-row {
-  flex-direction: column;
-  align-items: center;
-}
-  .event-card {
-    min-height: 200px;
-  }
 }
 
 .event-card-date-info {
   display: flex;
   flex-direction: column;
   align-items: end;
+  justify-content: center;
   width: 100%;
 }
 
@@ -91,14 +73,13 @@
   line-height: 1.1;
 }
 
-.event-card-location-text{
+.event-card-location-text {
   font-size: 0.75rem;
   font-weight: 200;
-  
 }
 
-.event-card-btn-text{
-  max-width:100px;
+.event-card-btn-text {
+  max-width: 100px;
 }
 
 .event-card-content {
@@ -140,15 +121,13 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  
 }
 
 .event-card-location-link {
   display: flex;
   align-items: center;
   color: #eac5a8;
-   text-decoration: none;
-  
+  text-decoration: none;
 }
 
 .event-card-tickets-link {
@@ -212,12 +191,12 @@
 .event-card.past .event-card-label {
   background: #232323;
   color: #991b1b;
-  width: 100%;
+  border: red 2px solid;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.75rem;
   font-size: 1.5rem;
   font-weight: 900;
   opacity: 0.95;
@@ -236,4 +215,40 @@
 .front {
   transform: rotateY(180deg);
   color: white;
+}
+
+@media (max-width: 480px) {
+  .event-card-date-row-content {
+    display: none;
+  }
+
+  .event-card-location-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .event-card {
+    min-height: 100px;
+    max-width: 100%;
+    aspect-ratio: 5 / 4;
+  }
+
+  .event-card-date-row {
+    font-size: 0.75rem;
+    left: 0.5rem;
+    right: 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .event-card-date-row {
+    font-size: 0.875rem;
+    left: 0.75rem;
+    right: 0.75rem;
+  }
+}
+
+@media (max-width: 1240px) {
+  .event-card-date-row-content {
+    font-size: 0.75rem;
+  }
 }

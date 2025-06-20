@@ -2,6 +2,7 @@
 .loader {
   display: flex;
   align-items: center;
+  
 }
 
 .bar {
@@ -58,7 +59,9 @@
   border-radius: 1.5rem;
   color: #eac5a8;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-  margin: 2rem auto;
+    margin-left: .5rem;
+    margin-right: .5rem;
+     margin-bottom: 2rem;
 }
 
 .timer-loader-title {
