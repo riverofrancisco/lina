@@ -61,7 +61,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: 400;
 }
 
@@ -69,7 +69,10 @@
   .event-card-date-row-content {
     display: none;
   }
-
+.event-card-location-row {
+  flex-direction: column;
+  align-items: center;
+}
   .event-card {
     min-height: 200px;
   }
@@ -86,6 +89,16 @@
 .event-card-date-time {
   margin: 0;
   line-height: 1.1;
+}
+
+.event-card-location-text{
+  font-size: 0.75rem;
+  font-weight: 200;
+  
+}
+
+.event-card-btn-text{
+  max-width:100px;
 }
 
 .event-card-content {
@@ -127,15 +140,15 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 1rem;
+  
 }
 
 .event-card-location-link {
   display: flex;
   align-items: center;
   color: #eac5a8;
-  text-decoration: none;
-  font-weight: 200;
+   text-decoration: none;
+  
 }
 
 .event-card-tickets-link {
@@ -144,16 +157,15 @@
 
 .event-card-btn {
   margin-top: 1rem;
-  padding: 0 0.5rem;
+  padding: 0.5rem 0.5rem;
   border-radius: 0.5rem;
   font-weight: 700;
   background: #eac5a8;
   color: #232323;
-
-  cursor: pointer;
   transition: background 0.2s, color 0.2s;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
 
