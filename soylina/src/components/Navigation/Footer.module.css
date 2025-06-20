@@ -16,7 +16,6 @@
 .logo {
   margin-right: 1rem;
   border-radius: 0.5rem;
-
 }
 
 .brand {
@@ -84,6 +83,20 @@
   margin-top: 1rem;
 }
 
+.footerRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.footerCol {
+  flex: 1 1 200px;
+  min-width: 180px;
+  margin-bottom: 1.5rem;
+}
+
 @media (max-width: 900px) {
   .footerContainer {
     padding-left: 0.5rem;
@@ -94,6 +107,15 @@
   }
   .sectionTitle {
     font-size: 1rem;
+  }
+  .footerRow {
+    flex-direction: column;
+  }
+  .footerCol {
+    min-width: 0;
+    margin-bottom: 0;
+    flex: 1 1 auto;
+
   }
 }
 

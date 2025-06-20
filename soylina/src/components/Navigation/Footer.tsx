@@ -2,7 +2,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { Box, Container, Typography, IconButton } from '@mui/material';
-import Grid from '@mui/material/Grid';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
@@ -13,15 +12,21 @@ import AudiotrackIcon from '@mui/icons-material/Audiotrack';
 import Image from 'next/image';
 import styles from './Footer.module.css';
 import { ContactInfo } from '@/utils/keys/es.json';
-
-// Simula ContactInfo, reemplaza por tus datos reales o props
+import {
+  IconBrandSpotify,
+  IconBrandYoutube,
+  IconBrandInstagram,
+  IconBrandTiktok,
+  IconArrowBackUp,
+  IconSquareRoundedPlusFilled,
+} from '@tabler/icons-react';
 
 export default function Footer() {
   return (
     <Box component="footer" className={styles.footer}>
       <Container maxWidth="xl" className={styles.footerContainer}>
-        <Grid container spacing={4} justifyContent="space-between">
-          <Grid item xs={12} md={3}>
+        <div className={styles.footerRow}>
+          <div className={styles.footerCol}>
             <Box display="flex" alignItems="center" mb={2}>
               <Image
                 src={'/pictures/logolight.png'}
@@ -39,8 +44,8 @@ export default function Footer() {
                 Lina Rivero
               </Typography>
             </Box>
-          </Grid>
-          <Grid item xs={12} sm={4} md={3}>
+          </div>
+          <div className={styles.footerCol}>
             <Typography className={styles.sectionTitle}>Calendario</Typography>
             <ul className={styles.linkList}>
               <li>
@@ -49,8 +54,8 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </Grid>
-          <Grid item xs={12} sm={4} md={3}>
+          </div>
+          <div className={styles.footerCol}>
             <Typography className={styles.sectionTitle}>
               Lina en redes
             </Typography>
@@ -72,12 +77,12 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className={styles.link}
                 >
-                  <AudiotrackIcon fontSize="small" /> Spotify
+                  <IconBrandSpotify stroke={1.25} size={22} /> Spotify
                 </a>
               </li>
             </ul>
-          </Grid>
-          <Grid item xs={12} sm={4} md={3}>
+          </div>
+          <div className={styles.footerCol}>
             <Typography className={styles.sectionTitle}>Contacto</Typography>
             <ul className={styles.linkList}>
               <li>
@@ -95,9 +100,14 @@ export default function Footer() {
                   <EmailIcon fontSize="small" /> {ContactInfo.mail}
                 </a>
               </li>
+              <li>
+                <a href={ContactInfo.whatsappLink} className={styles.link}>
+                  <WhatsAppIcon fontSize="small" /> {ContactInfo.whatsapp}
+                </a>
+              </li>
             </ul>
-          </Grid>
-        </Grid>
+          </div>
+        </div>
         <Box className={styles.socialRow}>
           <IconButton
             component="a"
@@ -106,7 +116,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className={styles.socialIcon}
           >
-            <AudiotrackIcon />
+            <IconBrandSpotify stroke={1.25} size={28} />
           </IconButton>
           <IconButton
             component="a"
@@ -115,7 +125,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className={styles.socialIcon}
           >
-            <MusicNoteIcon />
+            <IconBrandTiktok stroke={1.25} size={28} />
           </IconButton>
           <IconButton
             component="a"
@@ -124,7 +134,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className={styles.socialIcon}
           >
-            <InstagramIcon />
+            <IconBrandInstagram stroke={1.25} size={28} />
           </IconButton>
           <IconButton
             component="a"
@@ -133,7 +143,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className={styles.socialIcon}
           >
-            <YouTubeIcon />
+            <IconBrandYoutube stroke={1.25} size={28} />
           </IconButton>
         </Box>
         <Typography className={styles.copyright}>
