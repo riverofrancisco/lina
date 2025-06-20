@@ -120,7 +120,7 @@ export const EventCard = ({
             href={!isFree ? tickets : '#'}
             target="_blank"
             rel="noopener noreferrer"
-            className="event-card-tickets-link  "
+            className="event-card-tickets-link"
           >
             <Button
               className={`event-card-btn ${isFree ? 'outlined' : 'filled'}`}
