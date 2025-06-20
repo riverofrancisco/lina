@@ -55,7 +55,7 @@
   align-items: center;
   padding: 10px;
   border-radius: 15px;
-  opacity: 0.85;
+  opacity: 0.9;
   animation: fadeIn2 2s;
   transition: transform 0.5s ease, background 0.5s ease, color 0.5s ease,
     box-shadow 0.5s ease;
@@ -76,7 +76,7 @@
   padding: 10px;
   border-radius: 15px;
   justify-content: space-between;
-  opacity: 0.85;
+  opacity: 0.9;
   animation: fadeIn2 2s;
   transition: transform 0.5s ease, background 0.5s ease, color 0.5s ease,
     box-shadow 0.5s ease;
@@ -98,7 +98,7 @@
   justify-content: space-between;
   padding: 10px;
   border-radius: 15px;
-  opacity: 0.85;
+  opacity: 0.9;
   animation: fadeIn2 2s;
   transition: transform 0.5s ease, background 0.5s ease, color 0.5s ease,
     box-shadow 0.5s ease;
@@ -119,7 +119,7 @@
   align-items: center;
   padding: 10px;
   border-radius: 15px;
-  opacity: 0.85;
+  opacity: 0.9;
   animation: fadeIn2 2s;
   transition: transform 0.5s ease, background 0.5s ease, color 0.5s ease,
     box-shadow 0.5s ease;
@@ -161,6 +161,6 @@
     opacity: 0;
   }
   to {
-    opacity: 0.8;
+    opacity: 0.85;
   }
 }

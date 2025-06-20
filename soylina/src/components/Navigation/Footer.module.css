@@ -1,0 +1,114 @@
+.footer {
+  background: #232323;
+  color: #fff;
+  padding-top: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.footerContainer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.logo {
+  margin-right: 1rem;
+  border-radius: 0.5rem;
+
+}
+
+.brand {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #eac5a8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.linkList li {
+  margin-bottom: 0.7rem;
+}
+
+.link {
+  color: #e5e7eb;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: #eac5a8;
+  text-decoration: underline;
+}
+
+.socialRow {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0 1rem 0;
+}
+
+.socialIcon {
+  color: #e5e7eb !important;
+  transition: color 0.2s;
+}
+
+.socialIcon:hover {
+  color: #eac5a8 !important;
+}
+
+.copyright {
+  text-align: center;
+  display: flex;
+  justify-self: center;
+  color: #bdbdbd;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 900px) {
+  .footerContainer {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .brand {
+    font-size: 1.2rem;
+  }
+  .sectionTitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footerContainer {
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+  }
+  .brand {
+    font-size: 1rem;
+  }
+  .sectionTitle {
+    font-size: 0.95rem;
+  }
+  .socialRow {
+    gap: 1rem;
+  }
+}
