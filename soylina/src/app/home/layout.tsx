@@ -1,6 +1,7 @@
-import Navbar from '@/components/Navbar/Navbar';
+import Navbar from '@/components/Navigation/Navbar';
 import React from 'react';
 import './layout.css';
+import Footer from '@/components/Navigation/Footer';
 
 export default function HomeLayout({
   children,
@@ -12,6 +13,7 @@ export default function HomeLayout({
     <>
       <Navbar links={links} />
       <main>{children}</main>
+      <Footer />
     </>
   );
 }

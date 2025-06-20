@@ -1,77 +1,62 @@
-.event-skeleton-card {
+.event-card-skeleton {
   position: relative;
-  background: linear-gradient(90deg, #232323 0%, black 100%);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  border-radius: 1rem;
   overflow: hidden;
-  animation: pulse 1.5s ease-in-out infinite;
-  width: 100%;
-  min-height: 200px;
-  max-width: 350px;
-  margin: 0 auto;
-}
-
-
-
-.event-skeleton-content {
-  padding: 1rem;
-}
-
-.event-skeleton-title {
-  height: 1.5rem;
   background: #232323;
+}
+
+.skeleton-anim {
+  background: linear-gradient(90deg, #232323 25%, #2e2e2e 37%, #232323 63%);
+  background-size: 400% 100%;
+  animation: skeleton-loading 1.4s ease-in-out infinite;
+  border-radius: 0.75rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.event-card-skeleton .event-card-img {
+  width: 100%;
+  height: 100%;
+  min-height: 140px;
+  aspect-ratio: 4 / 3;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.event-card-skeleton .event-card-date-row {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  height: 2.2rem;
+  border-radius: 0.75rem;
+  z-index: 2;
+  background: #2e2e2e;
+  opacity: 0.7;
+}
+
+.skeleton-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  z-index: 5;
+  background: transparent;
+}
+
+.event-card-skeleton .event-card-title,
+.event-card-skeleton .event-card-date-row-content,
+.event-card-skeleton .event-card-location-link,
+.event-card-skeleton .event-card-tickets-link {
   margin-bottom: 0.5rem;
   border-radius: 0.5rem;
-}
-
-.event-skeleton-date {
-  display: flex;
-  align-items: center;
-  color: #232323;
-  margin-bottom: 1rem;
-}
-
-.event-skeleton-date-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  margin-right: 0.5rem;
-  background: #232323;
-  border-radius: 50%;
-}
-
-.event-skeleton-date-bar {
-  height: 1rem;
-  width: 75%;
-  background: #232323;
-  border-radius: 0.5rem;
-}
-
-.event-skeleton-location {
-  height: 1rem;
-  width: 50%;
-  background: #232323;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-}
-
-.event-skeleton-buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.event-skeleton-btn {
-  height: 2rem;
-  width: 24%;
-  background: #232323;
-  border-radius: 0.5rem;
-}
-
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
 }
