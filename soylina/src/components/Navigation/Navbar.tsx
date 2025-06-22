@@ -17,10 +17,9 @@ interface NavBarProps {
 
 export default function NavBar(props: NavBarProps) {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" sx={{ color: '#000000' }}>
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
-     
+    <Box sx={{ flexGrow: 1, }}>
+      <AppBar position="fixed" sx={{ height:'65px',color: '#232323', justifyContent: 'center' }}>
+        <Toolbar sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
           <Box >
             <Link
               href="/"
