@@ -191,7 +191,6 @@
 .event-card.past .event-card-label {
   background: #232323;
   color: #991b1b;
-  border: red 2px solid;
   height: 100%;
   display: flex;
   justify-content: center;
