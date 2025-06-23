@@ -90,12 +90,13 @@ export const EventsContainer = ({ inHome, eventsData = [] }: IEventsPage) => {
   return (
     <>
       {targetDate === 'No-events-ahead' ? (
-        <TimerLoader />
+        <TimerLoader inHome={inHome} />
       ) : (
-        <Timer nextDate={targetDate} />
+        <Timer nextDate={targetDate} inHome={inHome} />
       )}
 
       {inHome ? (
+        
         <div className="embla">
           <div className="embla__viewport" ref={emblaRef}>
             <div className="embla__container">

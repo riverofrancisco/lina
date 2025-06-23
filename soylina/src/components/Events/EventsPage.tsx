@@ -15,12 +15,12 @@ const EventsPage = ({ inHome }: EventsPageI) => {
     const fetchEventsData = async () => {
       try {
         const response = await fetch('/api/events');
-        console.log('API Called!');
+        //console.log('API Called!');
         if (!response.ok) {
           throw new Error('Error fetching events');
         }
         const eventsData = await response.json();
-		console.log(eventsData)
+		    //console.log(eventsData)
         setEventsData(eventsData.data);
       } catch (error) {
         console.error(error);

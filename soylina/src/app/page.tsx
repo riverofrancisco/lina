@@ -5,6 +5,7 @@ import {
   IconMicrophone2,
   IconShare,
   IconSquareRoundedPlusFilled,
+  IconBrandWhatsapp
 } from '@tabler/icons-react';
 import { ContactInfo, Home } from '@/utils/keys/es.json';
 import LinaCard from '@/components/ui/Cards/LinaCard';
@@ -33,9 +34,9 @@ export default function Index() {
             logo={<IconMicrophone2 stroke={1.25} size={40} />}
           />
           <LinaCard
-            link={ContactInfo.mailLink}
+            link={ContactInfo.whatsappLink}
             title={Home.Contact}
-            logo={<IconMailFilled stroke={1.25} size={40} />}
+            logo={<IconBrandWhatsapp stroke={1.25} size={40} />}
           />
           <LinaCard
             link="/home"

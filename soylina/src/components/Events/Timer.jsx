@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import { calculateTimeLeft } from '@/utils/middlewares/timeCalculator';
 import './Timer.css';
 
-export const Timer = ({ nextDate }) => {
+export const Timer = ({ nextDate, inHome }) => {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(nextDate));
   const [animate, setAnimate] = useState({});
   const prevTimeLeft = useRef(timeLeft);
@@ -52,7 +52,7 @@ export const Timer = ({ nextDate }) => {
   });
 
   return (
-    <div className="timer-container">
+    <div className={inHome ? "timer-container" : "timer-container-noHome"}>
       <div className="timer-title">Próxima fecha en</div>
       <div className="timer-countdown">{timerComponents}</div>
     </div>

@@ -20,9 +20,13 @@
 
 .brand {
   font-weight: bold;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   color: #fff;
   letter-spacing: 0.02em;
+  text-decoration: none;
+}
+.brandLink {
+  text-decoration: none;
 }
 
 .sectionTitle {
@@ -103,7 +107,7 @@
     padding-right: 0.5rem;
   }
   .brand {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
   .sectionTitle {
     font-size: 1rem;
@@ -125,7 +129,7 @@
     padding-right: 0.2rem;
   }
   .brand {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   .sectionTitle {
     font-size: 0.95rem;

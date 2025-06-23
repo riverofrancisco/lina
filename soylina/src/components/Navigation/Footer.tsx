@@ -28,6 +28,7 @@ export default function Footer() {
         <div className={styles.footerRow}>
           <div className={styles.footerCol}>
             <Box display="flex" alignItems="center" mb={2}>
+              <Link href="/" className={styles.brandLink}>
               <Image
                 src={'/pictures/logolight.png'}
                 alt="logo"
@@ -43,6 +44,8 @@ export default function Footer() {
               >
                 Lina Rivero
               </Typography>
+              </Link>
+
             </Box>
           </div>
           <div className={styles.footerCol}>
