@@ -24,7 +24,7 @@ export const EventsContainerLoader = ({ inHome }: IEventsPage) => {
 
   return (
     <div>
-      <TimerLoader />
+      <TimerLoader inHome={inHome} />
       {inHome ? (
         <div className="embla">
           <div className="embla__viewport" ref={emblaRef}>
