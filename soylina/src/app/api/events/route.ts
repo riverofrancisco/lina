@@ -18,7 +18,7 @@ export async function GET() {
 
     if (error) {
       console.error('Supabase response error');
-      console.log(error);
+      //console.log(error);
     }
 
     if (events) {

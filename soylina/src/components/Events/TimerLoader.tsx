@@ -1,9 +1,11 @@
+'use client'
 import React from 'react';
 import './TimerLoader.css';
 
-export const TimerLoader = () => {
+export const TimerLoader = ({ inHome }: { inHome: boolean }) => {
+
   return (
-    <div className="timer-loader-container">
+    <div className={inHome ? "timer-loader-container" : "timer-loader-container-noHome"}>
       <div className="timer-loader-title">
         Pronto se publicarán nuevas fechas
       </div>

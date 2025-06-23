@@ -11,6 +11,20 @@
   margin: 0.75rem;
 }
 
+.timer-container-noHome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #8c2f1b 0%, #232323 100%);
+  border-radius: 1.5rem;
+  color: #eac5a8;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  margin: 0.75rem;
+  margin-top: 80px;
+}
+
 .timer-title {
   font-size: 1.5rem;
   font-weight: bold;
