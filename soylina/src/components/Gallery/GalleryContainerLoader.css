@@ -27,6 +27,7 @@
   padding: 20px;
   margin: 0 auto;
   z-index: 0;
+    justify-self: center;
 }
 
 @media (min-width: 800px) {
@@ -38,6 +39,6 @@
 
 @media (min-width: 1024px) {
   .gallery-container-loader {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(18%, 1fr));
   }
 }

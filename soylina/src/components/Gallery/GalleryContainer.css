@@ -4,7 +4,6 @@
   gap: 15px;
   padding: 20px;
   margin: 0 auto;
-  z-index: 0;
   justify-self: center;
 }
 
@@ -15,6 +14,13 @@
   object-fit: cover;
   border-radius: 8px;
   z-index: 1;
+  cursor: pointer;
+   transition: transform 0.5s ease-out;
+}
+
+.gallery-image:hover {
+  transform: perspective(1000px) rotateY(7deg) scale(1.02);
+  transition: transform 0.5s ease-out;
 }
 
 .gallery-back {
@@ -42,9 +48,9 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   .gallery-container {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(18%, 1fr));
   }
 }
 
