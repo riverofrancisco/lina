@@ -13,7 +13,7 @@ export const GalleryContainerLoader = ({ inHome }: IGalleryComponent) => {
   }
 
   return (
-    <div className="gallery-container">
+    <div className="gallery-container-loader">
       {picsToShow.map((picture, index) => (
         <div key={`SkeletonPic(${index})`} className="skeleton-loader"></div>
       ))}
