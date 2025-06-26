@@ -6,6 +6,7 @@
   padding-right: 1rem;
   padding-bottom: 2rem;
   margin-top: 2rem;
+  z-index: 0;
 }
 
 .footerContainer {

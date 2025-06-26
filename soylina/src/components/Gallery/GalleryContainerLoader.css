@@ -5,6 +5,7 @@
   animation: pulse 1.5s infinite ease-in-out;
   border-radius: 8px;
   aspect-ratio: 3 / 4;
+  justify-self: center;
 }
 
 @keyframes pulse {
@@ -19,25 +20,25 @@
   }
 }
 
-.gallery-container {
+.gallery-container-loader {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 15px;
   padding: 20px;
   margin: 0 auto;
-  max-width: 1200px;
   z-index: 0;
+    justify-self: center;
 }
 
 @media (min-width: 800px) {
-  .gallery-container {
+  .gallery-container-loader {
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     margin: 0 10%;
   }
 }
 
 @media (min-width: 1024px) {
-  .gallery-container {
+  .gallery-container-loader {
     grid-template-columns: repeat(auto-fill, minmax(18%, 1fr));
   }
 }

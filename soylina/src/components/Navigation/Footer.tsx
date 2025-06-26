@@ -80,7 +80,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className={styles.link}
                 >
-                  <IconBrandSpotify stroke={1.25} size={22} /> Spotify
+                  <IconBrandSpotify stroke={1.25} size={20} /> Spotify
                 </a>
               </li>
             </ul>
