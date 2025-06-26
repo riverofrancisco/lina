@@ -1,7 +1,25 @@
 .image-gallery-slide img {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 4 / 5;
+  height: 13vh;
   object-fit: cover;
   background: none;
+  overflow: hidden;
+  object-position: center center;
+}
+
+.image-gallery-slide .image-gallery-image {
+  width: 100%;
+  background: none;
+  overflow: hidden;
+  object-position: center center;
+  height: 85vh;
+}
+
+@media (max-width: 370px) {
+  .image-gallery-slide .image-gallery-image {
+    object-fit: cover;
+    height: 80vh;
+  }
+  .image-gallery-slide img {
+    height: 18vh;
+  }
 }

@@ -29,9 +29,6 @@ export default function InteractiveGallery({
     <Box
       sx={{
         display: openPicture ? 'flex' : 'none',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
         position: 'fixed',
         top: 0,
         left: 0,
@@ -55,12 +52,6 @@ export default function InteractiveGallery({
         </Button>
       </Box>
       <Box
-        sx={{
-          overflow: 'hidden',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
       >
         <ImageGallery
           items={formatedPictures}
