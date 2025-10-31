@@ -1,54 +1,120 @@
-# Astro Starter Kit: Basics
+# Lina — v2 (Astro)
 
-```sh
-npm create astro@latest -- --template basics
+> Second release — Astro-based portfolio site
+>
+> Live: https://lina-v2.vercel.app/
+
+---
+
+## Table of contents
+
+- [About](#about)
+- [Key features](#key-features)
+- [Project structure (v2)](#project-structure-v2)
+- [Tech stack](#tech-stack)
+- [Quick start](#quick-start)
+- [Environment & configuration](#environment--configuration)
+- [Deployment](#deployment)
+- [Notes & next steps](#notes--next-steps)
+
+---
+
+## About
+
+This folder contains the second release of the portfolio, built with Astro. It focuses on fast static rendering with optional interactive components using React.
+
+The site provides the artist's media, events, gallery and basic contact flows and was deployed to Vercel.
+
+---
+
+## Key features
+
+- Astro-based static site architecture with client-side React components where needed
+- Tailwind integration for utility-first styling
+- Supabase and other integrations available in the project config
+- Optimized static assets in `public/` (media and service files)
+
+---
+
+## Project structure (v2)
+
+Top-level files and folders in `v2`:
+
+```
+.vscode/
+.gitignore
+.prettierrc.mjs
+astro.config.mjs
+package.json
+package-lock.json
+tsconfig.json
+tailwind.config.mjs
+public/
+src/
+README.md
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Key `src/` layout:
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+```
+src/
+├── components/
+├── layouts/
+├── pages/
+├── utils/
+└── env.d.ts
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Key `public/` layout:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```
+public/
+├── favicon.ico
+├── media/
+└── services/
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+---
 
-## 🧞 Commands
+## Tech stack
 
-All commands are run from the root of the project, from a terminal:
+- Astro (v4+)
+- React for interactive components
+- Tailwind CSS
+- Supabase client (optional integrations)
+- TypeScript
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+---
 
-## 👀 Want to learn more?
+## Quick start
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Run locally:
+
+```powershell
+cd v2
+npm install
+npm run dev
+```
+
+Default dev port is usually 4321. Build for production:
+
+```powershell
+npm run build
+npm run preview
+```
+
+---
+
+## Environment & configuration
+
+- Check `astro.config.mjs`, `tailwind.config.mjs`, and any files under `src`/`config` for environment variable usage.
+- Provide required variables via `.env` or platform-specific configuration when deploying.
+
+---
+
+## Deployment
+
+- Live site: https://lina-v2.vercel.app/
+- Recommended host: Vercel — set environment variables in the Vercel dashboard and deploy from the `v2` folder or repository root as appropriate.
+
+---
