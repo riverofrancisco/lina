@@ -10,9 +10,11 @@ import {
   IconButton,
 } from '@mui/material';
 import MobileMenu from './MobileMenu';
+import { MenuNavigationProps } from '@/app/home/layout';
+
 
 interface NavBarProps {
-  links: string[];
+  links: MenuNavigationProps[];
 }
 
 export default function NavBar(props: NavBarProps) {
@@ -39,18 +41,16 @@ export default function NavBar(props: NavBarProps) {
             <MobileMenu links={props.links} />
             </Box>
           <Box sx={{ display: {xs: "none", sm:'flex'}, alignItems: 'center' }}>
-            {props.links.map((menu: string) => {
-              let menuName = menu;
-              if (menuName === 'home') {
-                menuName = '';
-              }
+            {props.links.map((menu: MenuNavigationProps) => {
+              let menuPath = menu.menuPathName;
+              
               return (
-                <Button key={menuName} color="inherit">
+                <Button key={menuPath} color="inherit">
                   <Link
-                    href={`/home/${menuName}`}
+                    href={`/home/${menuPath}`}
                     style={{ textDecoration: 'none', color: '#000000' }}
                   >
-                    {menu}
+                    {menu.menuName}
                   </Link>
                 </Button>
               );

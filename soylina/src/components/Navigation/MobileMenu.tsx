@@ -9,9 +9,10 @@ import { Menu } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import EventIcon from '@mui/icons-material/Event';
+import { MenuNavigationProps } from '@/app/home/layout';
 
 interface NavBarProps {
-  links: string[];
+  links: MenuNavigationProps[];
 }
 
 const Icons = [ <HomeIcon />,  <EventIcon />, <CollectionsIcon />,<MailIcon /> ];
@@ -26,13 +27,14 @@ export default function MobileMenu(props: NavBarProps) {
   const DrawerList = (
     <Box sx={{ width: '100%', color:"#232323" }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
-        {props.links.map((text, index) =>  {let menuName = text;
-              if (menuName === 'home') {
-                menuName = '';
-              } 
-              return (
-                <Link key={text}
-                    href={`/home/${menuName}`}
+        {props.links.map((link, index) =>  {
+          let menuPath = link.menuPathName;
+          if (menuPath === 'home') {
+            menuPath = '';
+          }
+          return (
+            <Link key={link.menuPathName}
+                href={`/home/${menuPath}`}
                     style={{ textDecoration: 'none', color: '#000000' }}
                   >
           <ListItem  disablePadding>
@@ -41,7 +43,7 @@ export default function MobileMenu(props: NavBarProps) {
               <ListItemIcon sx={{ color: '#232323'}}>
                 {Icons[index] || <InboxIcon />}
               </ListItemIcon>
-              <ListItemText primary={text.toLocaleUpperCase()} />
+              <ListItemText primary={link.menuName.toLocaleUpperCase()} />
             </ListItemButton>
           
           </ListItem>  </Link>
